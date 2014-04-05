@@ -4,7 +4,7 @@
 " An example for a Japanese version gvimrc file.
 " 日本語版のデフォルトGUI設定ファイル(gvimrc)
 "
-" Last Change: 01-Apr-2014.
+" Last Change: 05-Apr-2014.
 " Maintainer:  MURAOKA Taro <koron@tka.att.ne.jp>
 "
 " 解説:
@@ -90,12 +90,8 @@ scriptencoding utf-8
 if has('win32')
   " Windows用
   "set guifont=MS_Gothic:h10.5
-  "
-  " 逆にUTF-8でフォント名を指定しないといけないようだ
-  "let &guifont = iconv('Osaka－等幅:h10.5', &encoding, 'cp932')
   let &guifont = 'Osaka－等幅:h10.5'
 
-  "set guifont=Ricty:h14
   " 行間隔の設定
   set linespace=2
   if has('kaoriya')

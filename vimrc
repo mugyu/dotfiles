@@ -407,7 +407,7 @@ set colorcolumn=80
 "  ftplugin/ruby.vim
 "
 "{{{
-" let loaded_ruby_ftplugin = 1
+let loaded_ruby_ftplugin = 1
 "}}}
 "---------------------------------------------------------------------------
 "  タイプの部分最適化
@@ -485,7 +485,6 @@ filetype off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle'))
-"  call neobundle#rc(expand('C:/Users/admin/.vim/bundle'))
 endif
 
 NeoBundle 'Shougo/neobundle.vim'
@@ -565,8 +564,6 @@ NeoBundle 'Shougo/neomru.vim', {
 \  ]
 \}
 "}}}
-"NeoBundle 'kmnk/vim-unite-svn'
-"NeoBundle 'hrsh7th/vim-unite-vcs'
 NeoBundle 'kmnk/vim-unite-giti'
 " ujihisa/unite-gem
 "{{{
@@ -1023,10 +1020,6 @@ nnoremap <silent> ,ff :<C-u>VimFilerBufferDir -quit<CR>
 nnoremap <silent> ,fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
 nnoremap <silent> ,fv :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
 nnoremap <silent> ,fc :<C-u>VimFilerCurrentDir<CR>
-" unite.vim で絞り込み
-autocmd FileType vimfiler
-      \ nnoremap <buffer><silent>/
-      \ :<C-u>Unite file -default-action=vimfiler<CR>
 "}}}
 "---------------------------------------------------------------------------
 " VimShell.vim
@@ -1245,152 +1238,6 @@ autocmd FileType javascript let b:surround_{char2nr("f")} = "function \1function
 autocmd FileType javascript let b:surround_{char2nr("F")} = "function() {\r}"
 "}}}
 " End Of `Plugins Setting` }}}
-
-"===========================================================================
-" Disable Plugins
-"===========================================================================
-"{{{
-""---------------------------------------------------------------------------
-""  Viki plugin
-""
-""{{{
-"set runtimepath+=$VIM/viki
-"let g:vikiOpenUrlWith_mailto = 'c:\tools\rimarts\b2\b2 %{URL}'
-"let g:vikiOpenFileWith_html  = 'silent !w3m %{FILE}'
-"let g:vikiOpenFileWith_ANY   = 'silent !start %{FILE}'
-"let g:vikiHomePage           = 'C:/home/memo/viki/FrontPage'
-"autocmd BufRead,BufNewFile $HOME/memo/viki/* set filetype=viki
-""}}}
-""---------------------------------------------------------------------------
-"" LookupFile
-""
-""{{{
-"nmap <unique> <silent> <C-S> :LUBufs ^.*<CR>
-"let g:LookupFile_AlwaysAcceptFirst=1
-"let g:LookupFile_PreserveLastPattern=0
-"let g:LookupFile_AllowNewFiles=0
-"~/.vim/ftplugin/lookupfile.vim
-"inoremap <buffer> <TAB> <C-n>
-"inoremap <buffer> <S-TAB> <C-p>
-"inoremap <buffer> <C-c> <Esc><C-W>q
-"nnoremap <buffer> <C-c> <C-W>q
-"inoremap <buffer> <C-s> <Esc>:LUPath<CR>
-"nnoremap <buffer> <C-s> :LUPath<CR>
-""}}}
-""---------------------------------------------------------------------------
-""  ２ちゃんねる閲覧 plugin
-""
-""{{{
-"set runtimepath+=$VIM/chalice
-""}}}
-
-""---------------------------------------------------------------------------
-""  一人 wiki 風メモ取り環境 plugin howm_vim
-""
-""{{{
-"set runtimepath+=$VIM/howm_vim
-"let g:howm_dir = "$HOME/memo/viki"
-"let g:howm_grepprg = "grep"
-"let g:howm_findprg = "c:/tools/dos/bin/find"
-"" let g:howm_instantpreview = 1
-"let g:howm_html2txtcmd = "w3m -dump -cols 78 %s"
-"let g:howm_quotemark = "> "
-""}}}
-""---------------------------------------------------------------------------
-""  カレンダー plugin
-""
-""{{{
-"let g:calendar_diary = "$HOME/memo/viki"
-""}}}
-""---------------------------------------------------------------------------
-""  minibufexpl.vim plugin
-""
-""{{{
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBuffs = 1
-""}}}
-""---------------------------------------------------------------------------
-"" neocomplcache
-""
-""{{{
-"" Disable AutoComplPop.
-"let g:acp_enableAtStartup = 0
-"" Use neocomplcache.
-"let g:neocomplcache_enable_at_startup = 1
-"" Use smartcase.
-"let g:neocomplcache_enable_smart_case = 1
-"" Use camel case completion.
-"let g:neocomplcache_enable_camel_case_completion = 1
-"" Use underbar completion.
-"let g:neocomplcache_enable_underbar_completion = 1
-"" Set minimum syntax keyword length.
-"let g:neocomplcache_min_syntax_length = 3
-"let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-"
-"" Define dictionary.
-"let g:neocomplcache_dictionary_filetype_lists = {
-"    \ 'default' : '',
-"    \ 'vimshell' : $HOME.'/.vimshell/command-history',
-"    \ 'scheme' : $HOME.'/.vim/dict/gosh.dict',
-"    \ 'ruby' : $HOME.'/.vim/dict/ruby.dict'
-"    \ }
-"
-"" Define keyword.
-"if !exists('g:neocomplcache_keyword_patterns')
-"  let g:neocomplcache_keyword_patterns = {}
-"endif
-"let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-"
-"" Plugin key-mappings.
-"inoremap <expr><C-g>     neocomplcache#undo_completion()
-"inoremap <expr><C-l>     neocomplcache#complete_common_string()
-"
-"" Recommended key-mappings.
-"" <CR>: close popup and save indent.
-"" inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-"" inoremap <silent> <CR> <C-R>=<SID>CrInInsertModeBetterWay()<CR>
-"inoremap <expr> <silent> <CR> <C-R>=<SID>CrInInsertModeBetterWay()<CR>
-"function! s:CrInInsertModeBetterWay()
-"  return pumvisible() ? neocomplcache#close_popup()."\<CR>" : "\<CR>"
-"endfunction
-"
-"" <TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"" <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><C-y>  neocomplcache#close_popup()
-"inoremap <expr><C-e>  neocomplcache#cancel_popup()
-"
-"" AutoComplPop like behavior.
-""let g:neocomplcache_enable_auto_select = 1
-"
-"" Shell like behavior(not recommended).
-""set completeopt+=longest
-""let g:neocomplcache_enable_auto_select = 1
-""let g:neocomplcache_disable_auto_complete = 1
-""inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<TAB>"
-""inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-"
-"" Enable omni completion.
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"
-"" Enable heavy omni completion.
-"if !exists('g:neocomplcache_omni_patterns')
-"  let g:neocomplcache_omni_patterns = {}
-"endif
-"let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-""autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-"let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-"let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-""}}}
-"}}}
 
 "---------------------------------------------------------------------------
 " 新規作成時のテンプレート読み込み
