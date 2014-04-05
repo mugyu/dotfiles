@@ -389,9 +389,11 @@ NeoBundle 'Shougo/neocomplete.vim'
 " NeoSnippet.vim スニペットのポップアップ補完
 "{{{
 NeoBundle 'Shougo/neosnippet.vim'
-" neosnip.vim の default スニペット
+" 個人用 snippets
+NeoBundle 'mugyu/vim-user-snippets'
+" neosnip.vim の default snippets
 NeoBundle 'Shougo/neosnippet-snippets'
-" その他のスニペット
+" その他 snippets
 NeoBundle 'honza/vim-snippets'
 "}}}
 
@@ -750,7 +752,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
 "
 "{{{
 " Snippets Directory
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/user-snippets'
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/bundle/vim-user-snippets'
 
 " Plugin key-mappings.
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
