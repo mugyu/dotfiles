@@ -1,0 +1,105 @@
+# nya シリーズの共通設定ファイルです。
+#	実行時のカレントディレクトリか、
+#	環境変数HOMEの指すディレクトリに置くと
+#       起動時に読みこんで実行します。
+#
+# 名称などを変更したい場合は、起動時に -r オプションで
+# パスを指定してください。
+
+source c:/tools/bin/_nya
+
+#-----------------------------------------------------------------
+# 環境変数
+#-----------------------------------------------------------------
+set PATH=%PATH%;c:\tools\devkit\bin
+set PATH=%PATH%;C:\tools\devkit\mingw\bin
+set PATH=%PATH%;c:\tools\vim
+set PATH=%PATH%;c:\tools\ruby200\bin
+set PATH=%PATH%;c:\tools\nodejs
+set PATH=c:\script\batfile;%PATH%
+#set PATH=c:\tools\bin;%PATH%
+
+##
+## golang
+##
+#set GOROOT=c:\tools\go
+#set PATH=%PATH%;%GOROOT%\bin
+
+set TERM=msys
+set LESS=-q
+set EDITOR=C:/tools/vim/gvim.exe --remote-tab-wait-silent
+#set EDITOR=vim
+
+#-----------------------------------------------------------------
+# alias
+#-----------------------------------------------------------------
+alias cp    cp -i
+alias rm    rm -i
+alias mv    mv -i
+alias ll    ls -l
+alias new   cmd /c start ckw.exe
+alias vi    vim
+alias find  c:/tools/devkit/bin/find.exe
+alias time  c:/tools/devkit/bin/time.exe
+alias nkf   nkf -s
+alias csc   c:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\csc.exe
+alias vbc   c:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\vbc.exe
+alias jsc   c:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\jsc.exe
+alias MSBuild   c:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe
+alias gosh  c:\tools\Gauche\bin\gosh.exe
+alias less  c:\tools\vim\vim74\macros\less.bat
+alias git   c:\tools\git\bin\git.exe
+alias perl  c:\tools\git\bin\perl.exe
+
+# option +standalone
+foreach i (path date cls)
+    alias $i $COMSPEC /c $i
+end
+foreach i (notepad hidemaru taskmgr mspaint write gvim ckw)
+    alias $i $COMSPEC /c start $i
+end
+
+#-----------------------------------------------------------------
+# suffix
+#-----------------------------------------------------------------
+suffix ny  %nyatype% -f
+suffix pl  perl
+suffix rb  ruby
+suffix awk awk -f
+suffix vbs cscript //Nologo
+suffix js  cscript //Nologo
+suffix wsf cscript //Nologo
+suffix txt c:\home\script\batfile\less.bat
+suffix jpg cmd /c start c:\tools\IrfanView\i_view32.exe
+
+#-----------------------------------------------------------------
+# option
+#-----------------------------------------------------------------
+option prompt $e[31;40;1m[$w5]$_$$ $e[37;1m
+option +glob
+option uncompletechar ,;=
+option tilde   on
+option history on
+option savehist ~/.nya_history
+option backquote  4000
+option +keep_bottom_line
+
+#-----------------------------------------------------------------
+# command
+#-----------------------------------------------------------------
+cd{
+	__cd__ $*
+	ls
+}
+find{
+	option -glob
+	c:/tools/UnxUtils/usr/local/wbin/find.exe $*
+}
+source ~/.nyaos/lua/fc.lua
+source c:/tools/bin/_nya.d/opt/auto_cd.lua
+#source ~/.nyaos/lua/nyaos.object.browse.lua
+
+#-----------------------------------------------------------------
+# prompt
+#-----------------------------------------------------------------
+source ~/.nyaos/lua/prompt.lua
