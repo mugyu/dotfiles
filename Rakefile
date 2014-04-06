@@ -19,11 +19,68 @@ NOOP = $debug ? true : false
 # 対象ファイル
 DotFiles = FileList["#{SOURCE_DIR}/*"].exclude(*EXCLUDE_PATTERNS)
 
+# source file name から dest file name を生成
+def make_dest_file_name(source_file)
+    return "#{DEST_DIR}/.#{File.basename(source_file)}"
+end
+
+# 実行した環境の OS が Windows
+def os_is_Windows?
+  output = `cmd /c ver`
+  return false if output.nil?
+  return true if output.match("Windows")
+  false
+end
+
+# Windows 環境用に mklink の事前準備
+def preparation_mklink(source_file, dest_file)
+  if FileTest.exist? dest_file
+    if FileTest.identical? source_file, dest_file
+      rm dest_file, noop: NOOP
+    else
+      mv dest_file, "#{source_file}.$temp$.bak", noop: NOOP
+    end
+  end
+end
+
+# Windows 環境用 mklink
+def mklink(source_file, dest_file)
+	cmd = "cmd /c mklink #{dest_file.gsub("/", "\\")} #{source_file.gsub("/", "\\")}"
+  if NOOP
+    puts cmd
+    return true
+  else
+    begin
+      return sh cmd
+    rescue RuntimeError
+      return false
+    end
+  end
+end
+
+
 desc "対象フアイル一覧"
 task :list => DotFiles do
   puts DotFiles.map{|file|File.basename(file)}
 end
 
+desc "シンボリックリンクを張る"
+task :symlink => DotFiles do
+  DotFiles.each do |source_file|
+
+    # dotfile にリネーム
+    dest_file = make_dest_file_name(source_file)
+
+    if os_is_Windows?
+      # Windows 環境では ls -s の代わりに mklink を実行
+      # 失敗 == 管理者権限無し と判断して即時停止
+      preparation_mklink source_file, dest_file
+      exit unless mklink source_file, dest_file
+    else
+      ln_s source_fle, dest_file, force: true, noop: NOOP
+    end
+  end
+end
 
 desc "ハードリンクを張る"
 task :hardlink => DotFiles do
@@ -43,16 +100,4 @@ task :hardlink => DotFiles do
       ln source_file, dest_file, force: true, noop: NOOP
     end
   end
-end
-
-task :init => DotFiles do
-  DotFiles.each do |source_file|
-    dest_file = make_dest_file_name(source_file)
-    ln source_file, dest_file, force: true, noop: NOOP
-  end
-end
-
-# source file name から dest file name を生成
-def make_dest_file_name(source_file)
-    return "#{DEST_DIR}/.#{File.basename(source_file)}"
 end
