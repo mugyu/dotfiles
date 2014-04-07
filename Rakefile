@@ -14,7 +14,7 @@ EXCLUDE_PATTERNS = [
 ]
 
 # debug モードの時は実際のファイル操作を行わない
-NOOP = $debug ? true : false
+NOOP = $DEBUG ? true : false
 
 # 対象ファイル
 DotFiles = FileList["#{SOURCE_DIR}/*"].exclude(*EXCLUDE_PATTERNS)
