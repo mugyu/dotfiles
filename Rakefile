@@ -10,7 +10,8 @@ EXCLUDE_PATTERNS = [
   "*.bak",
   "*~",
   "*.swp",
-  ".*"
+  ".*",
+  "Thumbs.db"
 ]
 
 # debug モードの時は実際のファイル操作を行わない
