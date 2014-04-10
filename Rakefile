@@ -46,7 +46,7 @@ end
 
 # Windows 環境用 mklink
 def mklink(source_file, dest_file)
-	cmd = "cmd /c mklink #{dest_file.gsub("/", "\\")} #{source_file.gsub("/", "\\")}"
+  cmd = "cmd /c mklink #{dest_file.gsub("/", "\\")} #{source_file.gsub("/", "\\")}"
   if NOOP
     puts cmd
     return true
