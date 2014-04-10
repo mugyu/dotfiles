@@ -22,7 +22,7 @@ DotFiles = FileList["#{SOURCE_DIR}/*"].exclude(*EXCLUDE_PATTERNS)
 
 # source file name から dest file name を生成
 def make_dest_file_name(source_file)
-    return "#{DEST_DIR}/.#{File.basename(source_file)}"
+  return "#{DEST_DIR}/.#{File.basename(source_file)}"
 end
 
 # 実行した環境の OS が Windows
