@@ -27,10 +27,7 @@ end
 
 # 実行した環境の OS が Windows
 def os_is_Windows?
-  output = `cmd /c ver`
-  return false if output.nil?
-  return true if output.match("Windows")
-  false
+  ENV['OS'].match("Windows") ? true : false
 end
 
 # Windows 環境用に mklink の事前準備
