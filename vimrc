@@ -114,7 +114,7 @@ nmap g* g*zz
 nmap g# g#zz
 
 " Visualモードのpで上書きされたテキストをレジスタに入れない
-vnoremap p "_c<C-r>"<ESC>
+vnoremap p "_c<C-r>*<ESC>
 
 "コマンドラインモードで Emacs 風のキー操作を提供するものです。
 "
