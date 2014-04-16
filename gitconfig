@@ -5,3 +5,4 @@
 	co = checkout
 	st = status
 	ci = commit
+	branches = branch --all
