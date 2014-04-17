@@ -70,7 +70,7 @@ task :symlink => DotFiles do
     dest_file = make_dest_file_name(source_file)
 
     if os_is_Windows?
-      # Windows 環境では ls -s の代わりに mklink を実行
+      # Windows 環境では ln -s の代わりに mklink を実行
       # 失敗 == 管理者権限無し と判断して即時停止
       preparation_mklink source_file, dest_file
       exit unless mklink source_file, dest_file
