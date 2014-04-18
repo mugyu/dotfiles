@@ -36,7 +36,7 @@ def preparation_mklink(source_file, dest_file)
     if FileTest.identical? source_file, dest_file
       rm dest_file, noop: NOOP
     else
-      mv dest_file, "#{source_file}.$temp$.bak", noop: NOOP
+      mv dest_file, "#{source_file}.~temp~.bak", noop: NOOP
     end
   end
 end
