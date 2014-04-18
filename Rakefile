@@ -82,23 +82,3 @@ task :symlink => DotFiles do
     end
   end
 end
-
-desc "ハードリンクを張る"
-task :hardlink => DotFiles do
-  DotFiles.each do |source_file|
-
-    # dotfile にリネーム
-    dest_file = make_dest_file_name(source_file)
-
-    if FileTest.exist? dest_file
-      unless compare_file source_file, dest_file
-        ln dest_file, source_file, force: true, noop: NOOP
-      end
-    else
-      # hard link がいつの間にか切れてた場合は dest をオリジナルとして
-      # hard link を張り直す。これは、source が 履歴管理されている事を
-      # 前提としている。
-      ln source_file, dest_file, force: true, noop: NOOP
-    end
-  end
-end
