@@ -4,7 +4,7 @@ scriptencoding utf-8
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 06-Apr-2014.
+" Last Change: 21-Apr-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -568,8 +568,8 @@ NeoBundle 'othree/eregex.vim'
 NeoBundle 'scrooloose/syntastic'
 " 書いたスクリプトを即実行 ,r
 NeoBundle 'thinca/vim-quickrun'
-" レジストリの履歴 <C-p>, <C-n>
-NeoBundle "YankRing.vim"
+" レジスタの履歴を取得・再利用する<c-p>, <c-n>
+NeoBundle "LeafCage/yankround.vim"
 " カレンダー
 NeoBundle 'calendar.vim'
 " 行単位のdiff
@@ -609,8 +609,7 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 " ファイル一覧
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -start-insert -buffer-name=files file<CR>
 " レジスタ一覧
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register history/yank<CR>
-xnoremap <silent> ,ur d:<C-u>Unite -buffer-name=register register history/yank<CR>
+nnoremap <silent> ,uR :<C-u>Unite -buffer-name=register register history/yank<CR>
 " 最近使用したファイル一覧
 nnoremap <silent> ,um :<C-u>Unite neomru/file<CR>
 " ジャンプ
@@ -886,12 +885,25 @@ let g:quickrun_config = {
 "}}}
 
 "---------------------------------------------------------------------------
-" yankring.vim - Yank / Delete Ring for Vim
-"   - http://www.vim.org/scripts/script.php?script_id=1234
-"   - http://nanasi.jp/articles/vim/yankring_vim.html
+" yankround.vim
 "
 "{{{
-set viminfo+=!
+" keymap
+nmap p <Plug>(yankround-p)
+" 変更前の履歴を取らない
+xmap p "_c<ESC><Plug>(yankround-p)
+"xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+" 変更前の履歴を取らない
+xmap gp "_c<ESC><Plug>(yankround-gp)
+"xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+
+" yankound history with unite.vim
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=yankound yankround<CR>
 "}}}
 
 "---------------------------------------------------------------------------
