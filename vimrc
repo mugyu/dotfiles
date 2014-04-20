@@ -73,6 +73,7 @@ if has('win32')
   " runtimepath を unix like に設定
   let &runtimepath = '~/.vim,' . &runtimepath . ',~/.vim/after'
 endif
+"}}}
 
 "---------------------------------------------------------------------------
 " ファイル操作に関する設定:
@@ -112,9 +113,6 @@ nmap * *zz
 nmap # #zz
 nmap g* g*zz
 nmap g# g#zz
-
-" Visualモードのpで上書きされたテキストをレジスタに入れない
-vnoremap p "_c<C-r>*<ESC>
 
 "コマンドラインモードで Emacs 風のキー操作を提供するものです。
 "
@@ -890,12 +888,12 @@ let g:quickrun_config = {
 "{{{
 " keymap
 nmap p <Plug>(yankround-p)
-" 変更前の履歴を取らない
+"Visualモードのpで上書きされたテキストをレジスタに入れない
 xmap p "_c<ESC><Plug>(yankround-p)
 "xmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
 nmap gp <Plug>(yankround-gp)
-" 変更前の履歴を取らない
+"Visualモードのgpで上書きされたテキストをレジスタに入れない
 xmap gp "_c<ESC><Plug>(yankround-gp)
 "xmap gp <Plug>(yankround-gp)
 nmap gP <Plug>(yankround-gP)
