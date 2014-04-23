@@ -4,7 +4,7 @@ scriptencoding utf-8
 "
 " Kariya Vim の $VIM/gvimrc を先読みしている前提の設定です。
 "
-" Last Change: 06-Apr-2014.
+" Last Change: 24-Apr-2014.
 
 
 "---------------------------------------------------------------------------
@@ -65,4 +65,14 @@ highlight Folded      guifg=#D0FFD0 guibg=#304030 gui=none
 "
 "{{{
 nmap <m-space> :simalt~<CR>
+"}}}
+
+"---------------------------------------------------------------------------
+" yankround.vim
+"
+"{{{
+" keymap
+"Visualモードのpで上書きされたテキストをレジスタに入れない
+xmap p "_c<ESC><Plug>(yankround-p)
+xmap gp "_c<ESC><Plug>(yankround-gp)
 "}}}
