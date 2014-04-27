@@ -6,3 +6,7 @@
 	st = status
 	ci = commit
 	branches = branch --all
+	rmbranch = branch --delete
+	ls = branch
+	ll = branch --all --verbose
+	lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
