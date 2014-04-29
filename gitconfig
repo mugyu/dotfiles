@@ -4,7 +4,8 @@
 [alias]
 	co = checkout
 	st = status
-	ci = commit
+	ci = commit --verbose
+	amend = commit --amend --verbose
 	branches = branch --all
 	rmbranch = branch --delete
 	ls = branch
