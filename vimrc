@@ -4,7 +4,7 @@ scriptencoding utf-8
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 24-Apr-2014.
+" Last Change: 04-May-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -389,6 +389,13 @@ function! s:bundle.hooks.on_source(bundle)
 endfunction
 unlet s:bundle
 "}}}
+" howm 一人お手軽wikiもどき
+"{{{
+NeoBundle 'osyo-manga/unite-qfixhowm'
+call unite#custom_source('qfixhowm', 'sorters', ['sorter_qfixhowm_updatetime', 'sorter_reverse'])
+" keymap
+nnoremap <silent> ,uh  :<C-u>Unite -no-start-insert qfixhowm<CR>
+"}}}
 "}}}
 
 " NeoComplate ポップアップ補完
@@ -582,6 +589,8 @@ unlet s:bundle
 "}}}
 " nishigori/increment-activator
 NeoBundle 'nishigori/increment-activator'
+" QFixHowm 一人お手軽wikiもどき
+NeoBundle 'fuenor/qfixhowm'
 
 " colorscheme 'tomasr/molokai'
 NeoBundle 'tomasr/molokai'
@@ -1024,4 +1033,51 @@ autocmd FileType php let b:surround_{char2nr("a")} = "array(\r)"
 autocmd FileType javascript let b:surround_{char2nr("f")} = "function \1function:\1() {\r}"
 autocmd FileType javascript let b:surround_{char2nr("F")} = "function() {\r}"
 "}}}
+
+"---------------------------------------------------------------------------
+" QFixHowm
+"
+"{{{
+" キーマップリーダー
+let qfixmemo_mapleader = ',h'
+" howm_dirはファイルを保存したいディレクトリを設定
+let howm_dir             = '~/howm'
+let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
+let howm_fileencoding    = 'cp932'
+let howm_fileformat      = 'dos'
+" QFixHowmのファイルタイプ
+let QFixHowm_FileType    = 'qfix_memo'
+" キーコードやマッピングされたキー列が完了するのを待つ時間(ミリ秒)
+set timeout timeoutlen=3000 ttimeoutlen=100
+" プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化(デフォルト:2)
+let QFixWin_EnableMode = 1
+" textwidthの再設定
+augroup HOWM_AUGROUP
+  autocmd!
+  autocmd Filetype qfix_memo setlocal textwidth=0
+augroup END
+" 休日定義ファイル
+let QFixHowm_HolidayFile = '~/howm/Sche-Hd-0000-00-00-000000.txt'
+" GMTとの時差
+let QFixHowm_ST = -9
+" 外部grepの指定
+let mygrepprg = 'grep'
+" マルチエンコーディングgrepを使用する
+let MyGrep_MultiEncoding = 1
+
+" MRU表示数
+let QFixMRU_Entries      = 30
+" MRUの保存ファイル名
+let QFixMRU_Filename     = '~/howm/qfixmru'
+" MRUに登録しないファイル名(正規表現)
+let QFixMRU_IgnoreFile   = ''
+" MRUに登録するファイルの正規表現(設定すると指定ファイル以外登録されない)
+let QFixMRU_RegisterFile = ''
+" MRUに登録しないタイトル(正規表現)
+let QFixMRU_IgnoreTitle  = ':invisible'
+
+" MRU内部のエントリ最大保持数
+let QFixMRU_EntryMax     = 300
+"}}}
+
 " End Of `Plugins Setting` }}}
