@@ -1042,11 +1042,13 @@ autocmd FileType javascript let b:surround_{char2nr("F")} = "function() {\r}"
 let qfixmemo_mapleader = ',h'
 " howm_dirはファイルを保存したいディレクトリを設定
 let howm_dir             = '~/howm'
-let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
-let howm_fileencoding    = 'cp932'
-let howm_fileformat      = 'dos'
+let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
+let howm_fileencoding    = 'utf8'
+let howm_fileformat      = 'unix'
 " QFixHowmのファイルタイプ
-let QFixHowm_FileType    = 'qfix_memo'
+let QFixHowm_FileType    = 'markdown'
+" タイトル記号
+let QFixHowm_Title       = '#'
 " キーコードやマッピングされたキー列が完了するのを待つ時間(ミリ秒)
 set timeout timeoutlen=3000 ttimeoutlen=100
 " プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化(デフォルト:2)
@@ -1057,7 +1059,7 @@ augroup HOWM_AUGROUP
   autocmd Filetype qfix_memo setlocal textwidth=0
 augroup END
 " 休日定義ファイル
-let QFixHowm_HolidayFile = '~/howm/Sche-Hd-0000-00-00-000000.txt'
+let QFixHowm_HolidayFile = '~/howm/Sche-Hd-0000-00-00-000000.utf8'
 " GMTとの時差
 let QFixHowm_ST = -9
 " 外部grepの指定
