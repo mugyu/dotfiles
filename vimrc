@@ -1039,44 +1039,44 @@ autocmd FileType javascript let b:surround_{char2nr("F")} = "function() {\r}"
 "
 "{{{
 " キーマップリーダー
-let qfixmemo_mapleader = ',h'
+let g:qfixmemo_mapleader = ',h'
 " howm_dirはファイルを保存したいディレクトリを設定
-let howm_dir             = '~/howm'
-let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
-let howm_fileencoding    = 'utf8'
-let howm_fileformat      = 'unix'
+let g:howm_dir             = '~/howm'
+let g:howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
+let g:howm_fileencoding    = 'utf8'
+let g:howm_fileformat      = 'unix'
 " QFixHowmのファイルタイプ
-let QFixHowm_FileType    = 'markdown'
+let g:QFixHowm_FileType    = 'markdown'
 " タイトル記号
-let QFixHowm_Title       = '#'
+let g:QFixHowm_Title       = '#'
 " キーコードやマッピングされたキー列が完了するのを待つ時間(ミリ秒)
 set timeout timeoutlen=3000 ttimeoutlen=100
 " プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化(デフォルト:2)
-let QFixWin_EnableMode = 1
+let g:QFixWin_EnableMode = 1
 " textwidthの再設定
 augroup HOWM_AUGROUP
   autocmd!
   autocmd Filetype qfix_memo setlocal textwidth=0
 augroup END
 " 休日定義ファイル
-let QFixHowm_HolidayFile = '~/howm/Sche-Hd-0000-00-00-000000.utf8'
+let g:QFixHowm_HolidayFile = '~/howm/Sche-Hd-0000-00-00-000000.utf8'
 " GMTとの時差
-let QFixHowm_ST = -9
+let g:QFixHowm_ST = -9
 " 外部grepの指定
-let mygrepprg = 'grep'
+let g:mygrepprg = 'grep'
 " マルチエンコーディングgrepを使用する
-let MyGrep_MultiEncoding = 1
+let g:MyGrep_MultiEncoding = 1
 
 " MRU表示数
-let QFixMRU_Entries      = 30
+let g:QFixMRU_Entries      = 30
 " MRUの保存ファイル名
-let QFixMRU_Filename     = '~/howm/qfixmru'
+let g:QFixMRU_Filename     = '~/howm/qfixmru'
 " MRUに登録しないファイル名(正規表現)
-let QFixMRU_IgnoreFile   = ''
+let g:QFixMRU_IgnoreFile   = ''
 " MRUに登録するファイルの正規表現(設定すると指定ファイル以外登録されない)
-let QFixMRU_RegisterFile = ''
+let g:QFixMRU_RegisterFile = ''
 " MRUに登録しないタイトル(正規表現)
-let QFixMRU_IgnoreTitle  = ':invisible'
+let g:QFixMRU_IgnoreTitle  = ':invisible'
 " MRUでエントリタイトルと見なす正規表現
 let g:QFixMRU_Title = {
 \   'java': '^\s*public.*(.*).*{',
@@ -1091,7 +1091,7 @@ let g:QFixMRU_Title = {
 \}
 
 " MRU内部のエントリ最大保持数
-let QFixMRU_EntryMax     = 300
+let g:QFixMRU_EntryMax     = 300
 "}}}
 
 " End Of `Plugins Setting` }}}
