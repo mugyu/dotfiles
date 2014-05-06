@@ -4,7 +4,7 @@ scriptencoding utf-8
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 04-May-2014.
+" Last Change: 06-May-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -1077,6 +1077,18 @@ let QFixMRU_IgnoreFile   = ''
 let QFixMRU_RegisterFile = ''
 " MRUに登録しないタイトル(正規表現)
 let QFixMRU_IgnoreTitle  = ':invisible'
+" MRUでエントリタイトルと見なす正規表現
+let g:QFixMRU_Title = {
+\   'java': '^\s*public.*(.*).*{',
+\   'js':   '^\s*function',
+\   'php':  '^\s*function',
+\   'py':   '^def',
+\   'rb':   '^\s*def',
+\   'vim':  '^\s*\(silent!\?\)\?\s*function',
+\   'howm': '^=\([^=]\|$\)',
+\   'txt':  '^=\([^=]\|$\)',
+\   'mkd':  '^#',
+\}
 
 " MRU内部のエントリ最大保持数
 let QFixMRU_EntryMax     = 300
