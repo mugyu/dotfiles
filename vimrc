@@ -1,10 +1,11 @@
 scriptencoding utf-8
+filetype off
 " vim:set ts=8 sts=2 sw=2 tw=0 foldmethod=marker:
 " (上記の行に関しては:help modelineを参照)
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 06-May-2014.
+" Last Change: 07-May-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -249,7 +250,6 @@ source $VIMRUNTIME/macros/matchit.vim
 "{{{
 
 " NeoBundle "{{{
-filetype off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle'))
@@ -599,9 +599,6 @@ NeoBundle 'tomasr/molokai'
 "{{{
 "NeoBundle 'Shougo/neocomplcache'
 "}}}
-
-filetype plugin on
-filetype indent on
 "}}}
 
 "---------------------------------------------------------------------------
@@ -1095,3 +1092,6 @@ let g:QFixMRU_EntryMax     = 300
 "}}}
 
 " End Of `Plugins Setting` }}}
+
+filetype plugin on
+filetype indent on
