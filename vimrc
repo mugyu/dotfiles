@@ -5,7 +5,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 07-May-2014.
+" Last Change: 21-May-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -47,6 +47,8 @@ set keywordprg=:help
 " GUI固有ではない画面表示の設定:
 "
 "{{{
+" ユニコードの全角か半角か曖昧な記号を全角表示する
+set ambiwidth=double
 " ステータスラインに文字コードと改行文字を表示
 "set statusline=%<[%n]%f\ %m%r%h%w%{'['.(&fenc==''?&enc:&fenc).']['.&ff.']['.(%ft==''?'n/a':&ft).']'}%=%l,%c%V%8P
 set statusline=%<[%n]%f\ %m%r%h%w%{'['.(&fenc==''?&enc:&fenc).']['.&ff.']'}%y%=%l,%c%V%8P 
