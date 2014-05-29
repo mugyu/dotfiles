@@ -396,7 +396,12 @@ unlet s:bundle
 " howm 一人お手軽wikiもどき
 "{{{
 NeoBundle 'osyo-manga/unite-qfixhowm'
-call unite#custom_source('qfixhowm', 'sorters', ['sorter_qfixhowm_updatetime', 'sorter_reverse'])
+let s:bundle = neobundle#get('unite-qfixhowm')
+function! s:bundle.hooks.on_source(bundle)
+  call unite#custom_source('qfixhowm', 'sorters',
+       \ ['sorter_qfixhowm_updatetime', 'sorter_reverse'])
+endfunction
+unlet s:bundle
 " keymap
 nnoremap <silent> ,uh  :<C-u>Unite -no-start-insert qfixhowm<CR>
 "}}}
