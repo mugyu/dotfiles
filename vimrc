@@ -465,9 +465,9 @@ function! s:bundle.hooks.on_source(bundle)
   \| call vimshell#altercmd#define('i', 'iexe')
   \| call vimshell#altercmd#define('l', 'll')
   \| call vimshell#altercmd#define('ll', 'ls -l')
-  \| call vimshell#hook#add('chpwd', 'my_chpwd', 'g:my_chpwd')
+  \| call vimshell#hook#add('chpwd', 'my_chpwd', 'MyChpwd')
 
-  function! g:my_chpwd(args, context)
+  function! MyChpwd(args, context)
     call vimshell#execute('ls')
   endfunction
 
