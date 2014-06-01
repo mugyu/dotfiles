@@ -1,6 +1,5 @@
 [core]
 	excludesfile = ~/.gitignore
-	editor = c:/tools/vim/vim.exe
 [alias]
 	co = checkout
 	st = status

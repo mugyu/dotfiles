@@ -27,7 +27,7 @@ set PATH=c:\script\batfile;%PATH%
 
 set TERM=msys
 set LESS=-q
-set EDITOR=C:/tools/vim/gvim.exe --remote-tab-wait-silent
+set EDITOR=gvim --remote-tab-wait-silent
 #set EDITOR=vim
 
 #-----------------------------------------------------------------
