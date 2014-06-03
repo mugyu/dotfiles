@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 30-May-2014.
+" Last Change: 04-Jun-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -892,7 +892,7 @@ set shell=nyaos.exe
 set shellcmdflag=-e
 set shellpipe=\|&\ tee
 set shellredir=>%s\ 2>&1
-set shellxquote=\"
+set shellxquote=\'
 "}}}
 
 "---------------------------------------------------------------------------
