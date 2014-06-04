@@ -886,13 +886,13 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=yankound yankround<CR>
 "
 "{{{
 set runtimepath+=~/.vim/vim-nyaos
-" Shell settings.
-" Use NYAOS.
-set shell=nyaos.exe
-set shellcmdflag=-e
-set shellpipe=\|&\ tee
-set shellredir=>%s\ 2>&1
-set shellxquote=\'
+"" Shell settings.
+"" Use NYAOS.
+"set shell=nyaos.exe
+"set shellcmdflag=-e
+"set shellpipe=\|&\ tee
+"set shellredir=>%s\ 2>&1
+"set shellxquote=\"
 "}}}
 
 "---------------------------------------------------------------------------
