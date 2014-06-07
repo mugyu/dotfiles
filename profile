@@ -1,3 +1,6 @@
+# path設定
+export PATH="$PATH":/C/tools/vim
+
 # lsで日本語を表示する
 alias ls='ls --color=auto --show-control-chars'
 alias ll='ls -l'
@@ -8,12 +11,6 @@ export OUTPUT_CHARSET=sjis
 
 # git path
 alias git="/C/tools/Git/bin/git.exe"
-
-# viコマンドで呼び出すエディタ
-alias vi='/C/vim/vim.exe'
-
-# gvim
-alias vim='/C/tools/vim/vim.exe'
 
 # ロケール他
 export TZ="JST-9"
