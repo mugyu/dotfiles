@@ -12,6 +12,13 @@ export OUTPUT_CHARSET=sjis
 # git path
 alias git="/C/tools/Git/bin/git.exe"
 
+# cd 後に自動で ls
+cdls ()
+{
+    \cd "$@" && ls
+}
+alias cd="cdls"
+
 # ロケール他
 export TZ="JST-9"
 export LANG="C"
