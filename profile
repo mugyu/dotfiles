@@ -1,5 +1,6 @@
 # path設定
 export PATH="$PATH":/C/tools/vim
+export PATH="$PATH":/C/tools/ruby200/bin
 
 # lsで日本語を表示する
 alias ls='ls --color=auto --show-control-chars'
