@@ -1,21 +1,21 @@
-# ls‚Å“ú–{Œê‚ğ•\¦‚·‚é
+# lsã§æ—¥æœ¬èªã‚’è¡¨ç¤ºã™ã‚‹
 alias ls='ls --color=auto --show-control-chars'
 alias ll='ls -l'
 alias l='ls -CF'
- 
-# gettext—p
+
+# gettextç”¨
 export OUTPUT_CHARSET=sjis
- 
+
 # git path
 alias git="/C/tools/Git/bin/git.exe"
- 
-# viƒRƒ}ƒ“ƒh‚ÅŒÄ‚Ño‚·ƒGƒfƒBƒ^
+
+# viã‚³ãƒãƒ³ãƒ‰ã§å‘¼ã³å‡ºã™ã‚¨ãƒ‡ã‚£ã‚¿
 alias vi='/C/vim/vim.exe'
- 
+
 # gvim
 alias vim='/C/tools/vim/vim.exe'
- 
-# ƒƒP[ƒ‹‘¼
+
+# ãƒ­ã‚±ãƒ¼ãƒ«ä»–
 export TZ="JST-9"
 export LANG="C"
 export LC_ALL="C"
