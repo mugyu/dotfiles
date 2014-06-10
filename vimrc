@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 04-Jun-2014.
+" Last Change: 11-Jun-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -15,8 +15,8 @@ filetype off
 "{{{
 " インクリメンタルサーチを行う
 set incsearch
-" grep の設定を 'findstr /n' から grep へ変更(win32の defult は findstr)
-set grepprg=grep\ -nH
+" grep の設定を 'findstr /n' から jvgrep へ変更(win32の defult は findstr)
+set grepprg=jvgrep\ -8
 "}}}
 
 "---------------------------------------------------------------------------
@@ -1035,9 +1035,11 @@ let g:QFixHowm_HolidayFile = '~/howm/Sche-Hd-0000-00-00-000000.utf8'
 " GMTとの時差
 let g:QFixHowm_ST = -9
 " 外部grepの指定
-let g:mygrepprg = 'grep'
-" マルチエンコーディングgrepを使用する
-let g:MyGrep_MultiEncoding = 1
+let g:mygrepprg = 'jvgrep'
+" 外部grep(OS)のshellエンコーディング
+let g:MyGrep_ShellEncoding = 'utf-8'
+"" マルチエンコーディングgrepを使用する
+"let g:MyGrep_MultiEncoding = 1
 
 " MRU表示数
 let g:QFixMRU_Entries      = 30
