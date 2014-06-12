@@ -150,11 +150,21 @@ nmap s <C-W>
 "  全角スペースなどに色づけ
 "
 "{{{
-" highlight SpecialKey   cterm=underline ctermfg=darkgrey
-"highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkblue
-highlight ZenkakuSpace ctermbg=1
-autocmd BufNewFile,BufRead * call matchadd("ZenkakuSpace", iconv('　', &encoding, 'cp932')) 
+" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color#color-zenkaku
+function! ZenkakuSpace()
+  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#303050
+endfunction
+
+if has('syntax')
+  augroup ZenkakuSpace
+    autocmd!
+    autocmd ColorScheme * call ZenkakuSpace()
+    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+  augroup END
+  call ZenkakuSpace()
+endif
 "}}}
+"
 
 "---------------------------------------------------------------------------
 "  指定カラムに色付け
