@@ -152,7 +152,7 @@ nmap s <C-W>
 "{{{
 " https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color#color-zenkaku
 function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#303050
+  highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=#505080
 endfunction
 
 if has('syntax')
