@@ -242,6 +242,7 @@ endif
 augroup IncludeTemplate
   autocmd!
   autocmd BufNewFile *.rb -r ~/.vim/templates/rb.tpl " Ruby
+  autocmd BufNewFile *.gemspec -r ~/.vim/templates/gemspec.tpl " RubyGems
 augroup END
 "}}}
 
