@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 15-Jun-2014.
+" Last Change: 18-Jun-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -797,6 +797,12 @@ endif
 " with Unit.vim
 nnoremap <silent> ,us :<C-u>Unite neosnippet<CR>
 "}}}
+
+augroup SNIPPETS_AUGROUP
+  autocmd!
+  " RubyGems
+  autocmd BufNewFile,BufRead *.gemspec NeoSnippetSource ~/.vim/bundle/vim-user-snippets/gemspec.snippets
+augroup END
 
 "---------------------------------------------------------------------------
 " VimFiler.vim
