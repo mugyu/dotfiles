@@ -4,7 +4,7 @@ scriptencoding utf-8
 "
 " Kariya Vim の $VIM/gvimrc を先読みしている前提の設定です。
 "
-" Last Change: 24-Apr-2014.
+" Last Change: 17-Jun-2014.
 
 
 "---------------------------------------------------------------------------
@@ -13,7 +13,9 @@ scriptencoding utf-8
 "{{{
 if has('win32')
   "set guifont=MS_Gothic:h10.5
-  let &guifont = 'Osaka－等幅:h10.5'
+  set guifont=Osaka－等幅:h10.5
+  "set renderoptions=type:directx,renmode:4
+  set renderoptions=type:directx
 endif
 "}}}
 
