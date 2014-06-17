@@ -1,0 +1,9 @@
+Style/AsciiComments:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Configuration parameters: CountComments.
+Style/MethodLength:
+  Max: 15
