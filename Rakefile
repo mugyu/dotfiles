@@ -1,5 +1,10 @@
 # coding: utf-8
 
+# デフォルトはタスク一覧表示
+task :default do
+  sh 'rake -s -T', :verbose => false
+end
+
 SOURCE_DIR = File.dirname(File.expand_path(__FILE__))
 DEST_DIR =  File.expand_path("~/")
 
