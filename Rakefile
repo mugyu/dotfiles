@@ -2,7 +2,7 @@
 
 # デフォルトはタスク一覧表示
 task :default do
-  sh 'rake -s -T', :verbose => false
+  sh "rake -s -T", verbose: false
 end
 
 SOURCE_DIR = File.dirname(File.expand_path(__FILE__))
@@ -27,26 +27,26 @@ DotFiles = FileList["#{SOURCE_DIR}/*"].exclude(*EXCLUDE_PATTERNS)
 
 # source file name から dest file name を生成
 def make_dest_file_name(source_file)
-  return "#{DEST_DIR}/.#{File.basename(source_file)}"
+  "#{DEST_DIR}/.#{File.basename(source_file)}"
 end
 
 # 実行した環境の OS が Windows
-def os_is_Windows?
-  ENV['OS'].match("Windows") ? true : false
+def os_is_windows?
+  ENV["OS"].match("Windows") ? true : false
 end
 
 # Windows 環境用に mklink の事前準備
 def preparation_mklink(source_file, dest_file)
-  if FileTest.exist? dest_file
-    if FileTest.identical? source_file, dest_file
-      if FileTest.directory? dest_file
-        rmdir dest_file, noop: NOOP
-      else
-        rm dest_file, noop: NOOP
-      end
+  return unless FileTest.exist? dest_file
+
+  if FileTest.identical? source_file, dest_file
+    if FileTest.directory? dest_file
+      rmdir dest_file, noop: NOOP
     else
-      mv dest_file, "#{source_file}.~temp~.bak", noop: NOOP
+      rm dest_file, noop: NOOP
     end
+  else
+    mv dest_file, "#{source_file}.~temp~.bak", noop: NOOP
   end
 end
 
@@ -68,20 +68,19 @@ def mklink(source_file, dest_file)
   end
 end
 
-
 desc "対象フアイル一覧"
-task :list => DotFiles do
-  puts DotFiles.map{|file|File.basename(file)}
+task list: DotFiles do
+  puts DotFiles.map { |file| File.basename(file) }
 end
 
 desc "シンボリックリンクを張る"
-task :symlink => DotFiles do
+task symlink: DotFiles do
   DotFiles.each do |source_file|
 
     # dotfile にリネーム
     dest_file = make_dest_file_name(source_file)
 
-    if os_is_Windows?
+    if os_is_windows?
       # Windows 環境では ln -s の代わりに mklink を実行
       # 失敗 == 管理者権限無し と判断して即時停止
       preparation_mklink source_file, dest_file
