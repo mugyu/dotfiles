@@ -19,11 +19,11 @@ set PATH=%PATH%;c:\tools\nodejs
 set PATH=c:\script\batfile;%PATH%
 #set PATH=c:\tools\bin;%PATH%
 
-##
-## golang
-##
-#set GOROOT=c:\tools\go
-#set PATH=%PATH%;%GOROOT%\bin
+#
+# golang
+#
+set GOROOT=c:\tools\go
+set PATH=%PATH%;%GOROOT%\bin
 
 set TERM=msys
 set LESS=-q
