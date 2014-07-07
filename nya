@@ -51,6 +51,7 @@ alias gosh  c:\tools\Gauche\bin\gosh.exe
 alias less  c:\tools\vim\vim74\macros\less.bat
 alias git   c:\tools\git\bin\git.exe
 alias perl  c:\tools\git\bin\perl.exe
+alias peco  "nkf -m0 -w -u | c:\tools\bin\peco\peco.exe"
 
 # option +standalone
 foreach i (path date cls)
