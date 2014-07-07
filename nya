@@ -22,7 +22,8 @@ set PATH=c:\script\batfile;%PATH%
 #
 # golang
 #
-set GOROOT=c:\tools\go
+set GOROOT=c:/tools/go
+set GOPATH=%HOME%/go
 set PATH=%PATH%;%GOROOT%\bin
 
 set TERM=msys
