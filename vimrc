@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 18-Jun-2014.
+" Last Change: 08-Jul-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -843,7 +843,7 @@ nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
 "
 "{{{
 let g:syntastic_javascript_checkers = ['jsl']
-let g:syntastic_javascript_jsl_conf = "c:/home/jsl.conf"
+let g:syntastic_javascript_args = '-conf "c:/home/jsl.conf"'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 "}}}
 
