@@ -13,6 +13,7 @@ setlocal indentkeys-=0#
 setlocal dictionary=~/.vim/dict/ruby.dict
 setlocal complete+=k
 "}}}
+
 "---------------------------------------------------------------------------
 " vim-ruby-refactoring
 "
