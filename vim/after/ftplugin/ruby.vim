@@ -62,13 +62,6 @@ endfunction
 inoremap <buffer><silent> ; <Esc>:call SmartSemicolon()<CR>a
 "}}}
 "---------------------------------------------------------------------------
-" Refe Key map
-"
-"{{{
-nnoremap <buffer> <silent> K :Refe <cword><CR>
-nnoremap <buffer> <silent> <C-K> :Refe<CR>
-"}}}
-"---------------------------------------------------------------------------
 " Vim上でRubyを動かしたい。
 " http://d.hatena.ne.jp/tanakaBox/20070827/1188149288
 " rubyscript を ビジュアルモードで囲って ctrl+enter
