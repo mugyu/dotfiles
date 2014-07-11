@@ -10,7 +10,7 @@
 "{{{
 setlocal ts=2 sw=2 number expandtab nowrap
 setlocal indentkeys-=0#
-"setlocal dictionary=~/.vim/dict/ruby.dict
+setlocal dictionary=~/.vim/dict/ruby.dict
 setlocal complete+=k
 "}}}
 "---------------------------------------------------------------------------
