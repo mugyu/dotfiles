@@ -61,52 +61,7 @@ function! SmartSemicolon()
 endfunction
 inoremap <buffer><silent> ; <Esc>:call SmartSemicolon()<CR>a
 "}}}
-"---------------------------------------------------------------------------
-" Vim上でRubyを動かしたい。
-" http://d.hatena.ne.jp/tanakaBox/20070827/1188149288
-" rubyscript を ビジュアルモードで囲って ctrl+enter
-"
-"{{{
-"nnoremap <buffer> <C-CR> :call <SID>Eval('n')<CR>
-"inoremap <buffer> <C-CR> <ESC>:call <SID>Eval('i')<CR>
-"vnoremap <buffer> <C-CR> :call <SID>EvalVisual()<CR>
-"
-"function! s:Eval(mode)
-"  let s:saved_reg = @"
-"  if a:mode == 'v'
-"    silent normal `<v`>y
-"  else
-"    silent normal yy
-"  endif
-"  execute "ruby p((" . @" . "))"
-"  let @" = s:saved_reg
-"endfunc
-"
-"function! s:EvalVisual() range
-"  call <SID>Eval('v')
-"endfunc
-"}}}
-"---------------------------------------------------------------------------
-" シンタックスエラーをQuickFixで一覧表示
-" http://blog.blueblack.net/item_150
-"     :make -c %
-"     :cw #エラーがある場合のみQuickFixを表示
-"
-"{{{
-compiler ruby
-" Ruby構文チェック
-setlocal makeprg=ruby\ -c\ %
-setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-"make したら自動的に :cw
-augroup quickfixopen
-  autocmd!
-  autocmd QuickfixCmdPost make cw
-augroup END
 
-if filereadable(expand('~/.tags_ruby'))
-  setlocal tags+=~/.tags_ruby
-endif
-"}}}
 "---------------------------------------------------------------------------
 " ctags
 "
