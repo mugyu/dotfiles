@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 08-Jul-2014.
+" Last Change: 16-Jul-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -900,13 +900,6 @@ set runtimepath+=~/.vim/vim-nyaos
 "set shellpipe=\|&\ tee
 "set shellredir=>%s\ 2>&1
 "set shellxquote=\"
-"}}}
-
-"---------------------------------------------------------------------------
-" Go language
-"
-"{{{
-set runtimepath+=~/.vim/golang
 "}}}
 
 "---------------------------------------------------------------------------
