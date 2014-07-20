@@ -16,6 +16,7 @@ set PATH=%PATH%;C:\tools\devkit\mingw\bin
 set PATH=%PATH%;c:\tools\vim
 set PATH=%PATH%;c:\tools\ruby200\bin
 set PATH=%PATH%;c:\tools\nodejs
+set PATH=%PATH%;c:\tools\git\bin
 set PATH=c:\script\batfile;%PATH%
 #set PATH=c:\tools\bin;%PATH%
 
@@ -49,8 +50,6 @@ alias jsc   c:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\jsc.exe
 alias MSBuild   c:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe
 alias gosh  c:\tools\Gauche\bin\gosh.exe
 alias less  c:\tools\vim\vim74\macros\less.bat
-alias git   c:\tools\git\bin\git.exe
-alias perl  c:\tools\git\bin\perl.exe
 alias peco  "nkf -m0 -w -u | c:\tools\bin\peco\peco.exe"
 
 # option +standalone
