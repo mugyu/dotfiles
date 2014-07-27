@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 16-Jul-2014.
+" Last Change: 27-Jul-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -604,6 +604,9 @@ NeoBundle 'fuenor/qfixhowm'
 " colorscheme 'tomasr/molokai'
 NeoBundle 'tomasr/molokai'
 
+" remote でプログラムのbuild and nunした結果を返す
+NeoBundle 'rhysd/wandbox-vim'
+
 " disable
 "{{{
 "NeoBundle 'Shougo/neocomplcache'
@@ -797,13 +800,13 @@ endif
 
 " with Unit.vim
 nnoremap <silent> ,us :<C-u>Unite neosnippet<CR>
-"}}}
 
 augroup SNIPPETS_AUGROUP
   autocmd!
   " RubyGems
   autocmd BufNewFile,BufRead *.gemspec NeoSnippetSource ~/.vim/bundle/vim-user-snippets/gemspec.snippets
 augroup END
+"}}}
 
 "---------------------------------------------------------------------------
 " VimFiler.vim
@@ -862,11 +865,19 @@ let g:quickrun_config = {
 \       'output/buffer/split': 'botright 8sp',
 \       'hook/time/enable': '1',
 \       'runner': 'vimproc',
+\       'outputter/buffer/close_on_empty': 1,
 \       'runner/vimproc/updatetime': 60,
 \   },
-\   'lua': {
-\       'command': 'luajit',
-\   },
+\   'lua': {'command': 'luajit'},
+\}
+" with wandbox-vim
+let g:quickrun_config = {
+\   'groovy':  {'runner': 'wandbox'},
+\   'haskell': {'runner': 'wandbox'},
+\   'pascal':  {'runner': 'wandbox'},
+\   'php':     {'runner': 'wandbox'},
+\   'python':  {'runner': 'wandbox'},
+\   'rust':    {'runner': 'wandbox'},
 \}
 "}}}
 
