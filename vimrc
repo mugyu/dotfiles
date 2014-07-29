@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 27-Jul-2014.
+" Last Change: 29-Jul-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -642,11 +642,6 @@ nnoremap <silent> ,u/ :<C-u>Unite -buffer-name=search -start-insert line/fast -n
 " history/yank
 nmap <silent> ,uy :<C-u>Unite history/yank register<CR>
 xnoremap <silent> ,uy d:<C-u>Unite -buffer-name=register history/yank register<CR>
-" tas
-autocmd BufEnter *
-\  if empty(&buftype)
-\|     nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
-\| endif
 "}}}
 
 "---------------------------------------------------------------------------
