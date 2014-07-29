@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 29-Jul-2014.
+" Last Change: 30-Jul-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -980,6 +980,7 @@ let g:increment_activator_filetype_candidates =
 \     ['same', 'different'],
 \     ['create', 'destory'],
 \     ['prefix', 'sufix'],
+\     ['some', 'any', 'every', 'no'],
 \   ],
 \   'ruby': [
 \     ['if', 'unless'],
