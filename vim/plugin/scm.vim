@@ -12,9 +12,11 @@ scriptencoding utf-8
 "
 "{{{
 function! s:gitdiff()
-  vnew
-  :%!git show HEAD:#
+  let s:filetype = &filetype
+  aboveleft vnew
+  :%!git show HEAD:./#
   setlocal readonly nomodifiable nomodified nonumber buftype=nofile
+"  let &filetype = s:filetype
   diffthis
   wincmd p
   diffthis
@@ -27,9 +29,11 @@ nmap <silent> ,gd :call <SID>gitdiff()<CR>
 "
 "{{{
 function! s:svndiff()
-  vnew
+  let s:filetype = &filetype
+  aboveleft vnew
   :%!svn cat #
   setlocal readonly nomodifiable nomodified nonumber buftype=nofile
+"  let &filetype = s:filetype
   diffthis
   wincmd p
   diffthis
