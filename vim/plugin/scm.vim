@@ -18,7 +18,6 @@ function! s:gitdiff()
   diffthis
   wincmd p
   diffthis
-  foldopen
 endfunction
 nmap <silent> ,gd :call <SID>gitdiff()<CR>
 "}}}
