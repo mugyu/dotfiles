@@ -37,3 +37,20 @@ function! s:svndiff()
 endfunction
 nmap <silent> ,sd :call <SID>svndiff()<CR>
 "}}}
+
+"---------------------------------------------------------------------------
+" svn: blame を表示
+"
+"{{{
+function! s:svnblame()
+  aboveleft 18vnew
+  :%!svn blame -v #
+  setlocal readonly nomodifiable nomodified buftype=nofile winwidth=1
+  setlocal nowrap nonumber
+  setlocal scrollbind
+  wincmd l
+  setlocal scrollbind
+  syncbind
+endfunction
+nmap <silent> ,sb :call <SID>svnblame()<CR>
+"}}}
