@@ -41,7 +41,7 @@ alias mv    mv -i
 alias ll    ls -l
 alias new   cmd /c start ckw.exe
 alias vi    vim
-alias find  c:/tools/devkit/bin/find.exe
+alias find  c:/tools/git/bin/find.exe
 alias time  c:/tools/devkit/bin/time.exe
 alias nkf   nkf -s
 alias csc   c:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\csc.exe
@@ -94,7 +94,7 @@ cd{
 }
 find{
 	option -glob
-	c:/tools/UnxUtils/usr/local/wbin/find.exe $*
+	find $*
 }
 source ~/.nyaos/lua/fc.lua
 source c:/tools/bin/_nya.d/opt/auto_cd.lua
