@@ -4,7 +4,9 @@ function nyaos.command.gitbra()
                | peco \
                | nkf -s"
   local branch = nyaos.eval(cmd)
-  if branch ~= "" then
+  if branch == "" then
+    print("")
+  else
     nyaos.exec("git co " .. string.sub(branch, 3))
   end
 end
