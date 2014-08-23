@@ -101,6 +101,7 @@ source c:/tools/bin/_nya.d/opt/auto_cd.lua
 #source ~/.nyaos/lua/nyaos.object.browse.lua
 source ~/.nyaos/lua/pcd.lua
 source ~/.nyaos/lua/gitbra.lua
+source ~/.nyaos/lua/todo.lua
 
 #-----------------------------------------------------------------
 # prompt
