@@ -1,0 +1,11 @@
+#
+# alias
+#
+alias i='iexe'
+alias vi='vim'
+alias ll='ls -l'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias cls='clear'
+alias find='c:/tools/devkit/bin/find.exe'

@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 30-Jul-2014.
+" Last Change: 23-Aug-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -472,11 +472,7 @@ function! s:bundle.hooks.on_source(bundle)
   call vimshell#set_execute_file('html,xhtml', 'gexe firefox')
 
   autocmd FileType vimshell
-  \ call vimshell#altercmd#define('g', 'git')
-  \| call vimshell#altercmd#define('i', 'iexe')
-  \| call vimshell#altercmd#define('l', 'll')
-  \| call vimshell#altercmd#define('ll', 'ls -l')
-  \| call vimshell#hook#add('chpwd', 'my_chpwd', 'MyChpwd')
+  \ call vimshell#hook#add('chpwd', 'my_chpwd', 'MyChpwd')
 
   function! MyChpwd(args, context)
     call vimshell#execute('ls')
