@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 23-Aug-2014.
+" Last Change: 25-Aug-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -1069,6 +1069,14 @@ let g:QFixMRU_Title = {
 
 " MRU内部のエントリ最大保持数
 let g:QFixMRU_EntryMax     = 300
+"}}}
+
+"---------------------------------------------------------------------------
+" golang
+"
+"{{{
+" add official plugin runtimepath
+set runtimepath+=$GOROOT/misc/vim
 "}}}
 
 " End Of `Plugins Setting` }}}
