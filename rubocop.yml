@@ -5,5 +5,5 @@ Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 # Configuration parameters: CountComments.
-Style/MethodLength:
+Metrics/MethodLength:
   Max: 15
