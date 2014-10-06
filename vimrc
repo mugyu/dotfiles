@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 25-Aug-2014.
+" Last Change: 07-Oct-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -284,7 +284,10 @@ NeoBundleLazy 'Shougo/unite.vim', {
 \                  'UniteWithCursorWord',
 \                  'UniteClose',
 \                  'UniteBookmarkAdd'
-\              ]}
+\              ]},
+\  'depends': [
+\      'Shougo/tabpagebuffer.vim'
+\  ]
 \}
 let s:bundle = neobundle#get('unite.vim')
 function! s:bundle.hooks.on_source(bundle)
