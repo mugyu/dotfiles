@@ -1,4 +1,6 @@
 # coding: utf-8
+STDOUT.set_encoding(Encoding.default_external)
+STDERR.set_encoding(Encoding.default_external)
 
 # デフォルトはタスク一覧表示
 task :default do
