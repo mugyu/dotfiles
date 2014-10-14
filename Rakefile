@@ -19,6 +19,12 @@ EXCLUDE_PATTERNS = [
   "Thumbs.db"
 ]
 
+# dotfile以外の設定ファイル
+NON_DOT_FILES = [
+  "Gemfile",
+  "Gemfile.lock"
+]
+
 # debug モードの時は実際のファイル操作を行わない
 NOOP = $DEBUG ? true : false
 
@@ -27,7 +33,11 @@ DotFiles = FileList["#{SOURCE_DIR}/*"].exclude(*EXCLUDE_PATTERNS)
 
 # source file name から dest file name を生成
 def make_dest_file_name(source_file)
-  "#{DEST_DIR}/.#{File.basename(source_file)}"
+  if NON_DOT_FILES.include? File.basename(source_file)
+    "#{DEST_DIR}/#{File.basename(source_file)}"
+  else
+    "#{DEST_DIR}/.#{File.basename(source_file)}"
+  end
 end
 
 # 実行した環境の OS が Windows
