@@ -11,13 +11,14 @@ source c:/tools/bin/_nya
 #-----------------------------------------------------------------
 # ä¬ã´ïœêî
 #-----------------------------------------------------------------
+set SCRIPTLIB=%HOME%\script
 set PATH=%PATH%;c:\tools\devkit\bin
 set PATH=%PATH%;C:\tools\devkit\mingw\bin
 set PATH=%PATH%;c:\tools\vim
 set PATH=%PATH%;c:\tools\ruby21\bin
 set PATH=%PATH%;c:\tools\nodejs
 set PATH=%PATH%;c:\tools\git\bin
-set PATH=c:\script\batfile;%PATH%
+set PATH=%SCRIPTLIB%\batfile;%PATH%
 #set PATH=c:\tools\bin;%PATH%
 
 #
