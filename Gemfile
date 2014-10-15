@@ -3,6 +3,7 @@
 source "https://rubygems.org"
 
 gem "bundler"
+gem "rubygems-update"
 gem "rake"
 gem "rubocop"
 gem "pry"
