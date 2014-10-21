@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 14-Oct-2014.
+" Last Change: 21-Oct-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -894,6 +894,9 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=yankound yankround<CR>
 
 " highlight
 let g:yankround_use_region_hl=1
+
+" cache directory
+let g:yankround_dir="~/.cache/yankround"
 "}}}
 
 "---------------------------------------------------------------------------
