@@ -32,6 +32,7 @@ set TERM=msys
 set LESS=-q
 set EDITOR=gvim --remote-tab-wait-silent
 #set EDITOR=vim
+set GREP_OPTiONS=--color=auto
 
 #-----------------------------------------------------------------
 # alias
