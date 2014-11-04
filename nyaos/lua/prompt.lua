@@ -1,4 +1,4 @@
--- svn‚Ìì‹Ædir‚Åurl‚ğA‚»‚µ‚Ägit‚Ìì‹Ædir‚Åbranch–¼‚ğƒvƒƒ“ƒvƒg‚Éo—Í
+-- svnã®ä½œæ¥­dirã§urlã‚’ã€ãã—ã¦gitã®ä½œæ¥­dirã§branchåã‚’ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã«å‡ºåŠ›
 --
 -- svn url
 local function subversion(current)
@@ -22,7 +22,7 @@ local function git(current)
   return ''
 end
 
--- Šç•¶š
+-- é¡”æ–‡å­—
 local function face(current)
   local errorlevel = (nyaos.option.errorlevel or '0')
   if errorlevel == '0' then
