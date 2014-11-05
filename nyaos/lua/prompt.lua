@@ -2,14 +2,15 @@
 --
 -- 祖先に向かって目標のディレクトリまたはファイルを探す
 local function closest(current, target)
-  local path = current
-  repeat
-    if nyaos.access(path .. target, 0) then
-      return path .. target
-    end
-    path = string.match(path, '^(.+)\\', 1)
-  until not path
-  return false
+  if not path then
+    return false
+  end
+
+  if nyaos.access(path .. target, 0) then
+    return path .. target
+  end
+
+  return closest(string.match(path, '^(.+)\\', 1), target);
 end
 
 -- svn url
