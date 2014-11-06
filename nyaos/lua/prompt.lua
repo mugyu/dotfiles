@@ -1,7 +1,7 @@
 -- svnの作業dirでurlを、そしてgitの作業dirでbranch名をプロンプトに出力
 --
 -- 祖先に向かって目標のディレクトリまたはファイルを探す
-local function closest(current, target)
+local function closest(path, target)
   if not path then
     return false
   end
