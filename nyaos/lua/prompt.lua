@@ -52,8 +52,5 @@ function nyaos.prompt(prompt)
     branch = subversion(current)
   end
 
-  if branch ~= '' then
-    return true, branch .. face(current) .. prompt
-  end
-  return nil, prompt
+  return true, branch .. face(current) .. prompt
 end
