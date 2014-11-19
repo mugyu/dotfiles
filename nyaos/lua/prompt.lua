@@ -33,6 +33,16 @@ local function git(current)
   return branch and '$e[33;40;1mGIT[' .. branch .. ']' or ''
 end
 
+-- branch
+local function branch(current)
+  local branch = git(current)
+  if branch ~= '' then
+    return branch
+  end
+
+  return subversion(current)
+end
+
 -- 顔文字
 local function face(current)
   local errorlevel = (nyaos.option.errorlevel or '0')
@@ -48,9 +58,6 @@ end
 function nyaos.prompt(prompt)
   local current = nyaos.eval('__pwd__')
   local branch = git(current)
-  if branch == '' then
-    branch = subversion(current)
-  end
 
-  return true, branch .. face(current) .. prompt
+  return true, branch(current) .. face(current) .. prompt
 end
