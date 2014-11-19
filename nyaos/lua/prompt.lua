@@ -1,5 +1,9 @@
 -- svnの作業dirでurlを、そしてgitの作業dirでbranch名をプロンプトに出力
 --
+local function errorlevel()
+  return nyaos.option.errorlevel or '0'
+end
+
 -- 祖先に向かって目標のディレクトリまたはファイルを探す
 local function closest(path, target)
   if not path then
@@ -19,7 +23,12 @@ local function subversion(current)
     return ''
   end
 
-  local url = string.match(nyaos.eval('svn info --xml'), '<url>(.*)</url>', 1)
+  local url = string.match(nyaos.eval('svn info --xml 2>&1'), '<url>(.*)</url>', 1)
+  if (errorlevel() ~= '0') then
+    nyaos.option.errorlevel = '0'
+    return ''
+  end
+
   return url and '$e[36;40;1mSVN[' .. url .. ']$_' or ''
 end
 
@@ -30,6 +39,11 @@ local function git(current)
   end
 
   local branch = string.match(nyaos.eval('git branch'), '* (%S*)', 1)
+  if (errorlevel() ~= '0') then
+    nyaos.option.errorlevel = '0'
+    return ''
+  end
+
   return branch and '$e[33;40;1mGIT[' .. branch .. ']' or ''
 end
 
@@ -45,7 +59,7 @@ end
 
 -- 顔文字
 local function face(current)
-  local errorlevel = (nyaos.option.errorlevel or '0')
+  local errorlevel = errorlevel()
   if errorlevel == '0' then
     return "$e[32;40;1m( *'v')$e[37;40;1m "
   else
@@ -57,7 +71,6 @@ end
 -- dynamic prompt
 function nyaos.prompt(prompt)
   local current = nyaos.eval('__pwd__')
-  local branch = git(current)
-
-  return true, branch(current) .. face(current) .. prompt
+  local face_marke = face(current)
+  return true, branch(current) .. face_marke .. prompt
 end
