@@ -804,7 +804,7 @@ endif
 " with Unit.vim
 nnoremap <silent> ,us :<C-u>Unite neosnippet<CR>
 
-augroup SNIPPETS_AUGROUP
+augroup SnippetsSetting
   autocmd!
   " RubyGems
   autocmd BufNewFile,BufRead *.gemspec NeoSnippetSource ~/.vim/bundle/vim-user-snippets/gemspec.snippets
@@ -1050,7 +1050,7 @@ set timeout timeoutlen=3000 ttimeoutlen=100
 " プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化(デフォルト:2)
 let g:QFixWin_EnableMode = 1
 " textwidthの再設定
-augroup HOWM_AUGROUP
+augroup HowmSetting
   autocmd!
   autocmd Filetype qfix_memo setlocal textwidth=0
 augroup END
