@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 21-Oct-2014.
+" Last Change: 24-Nov-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -182,8 +182,11 @@ set colorcolumn=80
 "  タイプの部分最適化
 "
 "{{{
-autocmd FileType html imap <buffer> <C-_> <%=  %><Esc>2hi
-autocmd FileType html imap <buffer> <C-E> <%  %><Esc>2hi
+augroup OptimizeTyping
+  autocmd!
+  autocmd FileType html imap <buffer> <C-=> <%=  %><Esc>2hi
+  autocmd FileType html imap <buffer> <C-E> <%  %><Esc>2hi
+augroup END
 "}}}
 
 "---------------------------------------------------------------------------
@@ -379,10 +382,13 @@ nnoremap <silent> ,uo :<C-u>Unite -buffer-name=outline outline<CR>
 " ctag のタグ
 "{{{
 NeoBundle 'tsukkee/unite-tag'
-autocmd BufEnter *
-  \   if empty(&buftype)
-  \|     noremap <silent> ,ut :<C-u>UniteWithCursorWord -immediately tag<CR>
-  \|  endif
+augroup UniteTagKeyMaping
+  autocmd!
+  autocmd BufEnter *
+    \   if empty(&buftype)
+    \|     noremap <silent> ,ut :<C-u>UniteWithCursorWord -immediately tag<CR>
+    \|  endif
+augroup END
 "}}}
 " codic の辞書
 "{{{
@@ -730,11 +736,14 @@ imap <expr> <CR> pumvisible() ?
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup NeoComplateEnableCmniComplation
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup END
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -1002,20 +1011,23 @@ let g:increment_activator_filetype_candidates =
 "
 "{{{
 " ruby
-autocmd FileType ruby let b:surround_{char2nr("i")} = "if \1condition: \1 \r end"
-autocmd FileType ruby let b:surround_{char2nr("d")} = "def \1method: \1 \r end"
-" erb
-autocmd FileType eruby let b:surround_{char2nr("-")} = "<% \r %>"
-autocmd FileType eruby let b:surround_{char2nr("%")} = "<% \r %>"
-autocmd FileType eruby let b:surround_{char2nr("=")} = "<%= \r %>"
-" php
-autocmd FileType php let b:surround_{char2nr("-")} = "<? \r ?>"
-autocmd FileType php let b:surround_{char2nr("?")} = "<? \r ?>"
-autocmd FileType php let b:surround_{char2nr("=")} = "<?= \r ?>"
-autocmd FileType php let b:surround_{char2nr("a")} = "array(\r)"
-" javascript
-autocmd FileType javascript let b:surround_{char2nr("f")} = "function \1function:\1() {\r}"
-autocmd FileType javascript let b:surround_{char2nr("F")} = "function() {\r}"
+augroup VimSurroundFileTypeSetting
+  autocmd!
+  autocmd FileType ruby let b:surround_{char2nr("i")} = "if \1condition: \1 \r end"
+  autocmd FileType ruby let b:surround_{char2nr("d")} = "def \1method: \1 \r end"
+  " erb
+  autocmd FileType eruby let b:surround_{char2nr("-")} = "<% \r %>"
+  autocmd FileType eruby let b:surround_{char2nr("%")} = "<% \r %>"
+  autocmd FileType eruby let b:surround_{char2nr("=")} = "<%= \r %>"
+  " php
+  autocmd FileType php let b:surround_{char2nr("-")} = "<? \r ?>"
+  autocmd FileType php let b:surround_{char2nr("?")} = "<? \r ?>"
+  autocmd FileType php let b:surround_{char2nr("=")} = "<?= \r ?>"
+  autocmd FileType php let b:surround_{char2nr("a")} = "array(\r)"
+  " javascript
+  autocmd FileType javascript let b:surround_{char2nr("f")} = "function \1function:\1() {\r}"
+  autocmd FileType javascript let b:surround_{char2nr("F")} = "function() {\r}"
+augroup END
 "}}}
 
 "---------------------------------------------------------------------------
