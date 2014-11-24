@@ -48,21 +48,27 @@ set keywordprg=:help
 " GUI固有ではない画面表示の設定:
 "
 "{{{
+" GUI実行時に設定しない(gvimrcに設定の任を委譲)
+if ! has("gui_running")
+
+  " カラースキーム (Windows用gvim使用時はgvimrcを編集すること)
+  colorscheme torte
+
+  " ポップアップ補完メニュー色設定（通常の項目、選択されている項目、スクロールバー、スクロールバーのつまみ部分） 
+  highlight Pmenu       ctermfg=0 guifg=#000000 ctermbg=6 guibg=#4c745a
+  highlight PmenuSel    ctermfg=0 guifg=#000000 ctermbg=3 guibg=#d4b979
+  highlight PmenuSbar   ctermfg=0 guifg=#000000 ctermbg=0 guibg=#333333
+  highlight PmenuThumb  ctermfg=0 guifg=#000000 ctermbg=0 guibg=Red
+endif
+
 " ユニコードの全角か半角か曖昧な記号を全角表示する
 set ambiwidth=double
 " ステータスラインに文字コードと改行文字を表示
 "set statusline=%<[%n]%f\ %m%r%h%w%{'['.(&fenc==''?&enc:&fenc).']['.&ff.']['.(%ft==''?'n/a':&ft).']'}%=%l,%c%V%8P
 set statusline=%<[%n]%f\ %m%r%h%w%{'['.(&fenc==''?&enc:&fenc).']['.&ff.']'}%y%=%l,%c%V%8P 
 
-" カラースキーム (Windows用gvim使用時はgvimrcを編集すること)
+" シンタックスを有効にする
 syntax enable
-colorscheme torte
-
-"ポップアップ補完メニュー色設定（通常の項目、選択されている項目、スクロールバー、スクロールバーのつまみ部分） 
-highlight Pmenu       ctermfg=0 guifg=#000000 ctermbg=6 guibg=#4c745a
-highlight PmenuSel    ctermfg=0 guifg=#000000 ctermbg=3 guibg=#d4b979
-highlight PmenuSbar   ctermfg=0 guifg=#000000 ctermbg=0 guibg=#333333
-highlight PmenuThumb  ctermfg=0 guifg=#000000 ctermbg=0 guibg=Red
 
 " Windowを分割する際、下あるいは右に新しいWindowを出現させる
 set splitbelow
