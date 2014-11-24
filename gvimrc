@@ -4,7 +4,7 @@ scriptencoding utf-8
 "
 " Kariya Vim の $VIM/gvimrc を先読みしている前提の設定です。
 "
-" Last Change: 17-Jun-2014.
+" Last Change: 24-Nov-2014.
 
 
 "---------------------------------------------------------------------------
@@ -17,16 +17,6 @@ if has('win32')
   "set renderoptions=type:directx,renmode:4
   set renderoptions=type:directx
 endif
-"}}}
-
-"---------------------------------------------------------------------------
-" ウインドウに関する設定:
-"
-"{{{
-colorscheme molokai
-"let g:molokai_original = 1
-let g:rehash256 = 1
-set background=dark
 "}}}
 
 "---------------------------------------------------------------------------
@@ -53,12 +43,23 @@ set guioptions-=T
 " 画面表示の設定:
 "
 "{{{
-"ポップアップ補完メニュー色設定（通常の項目、選択されている項目、スクロールバー、スクロールバーのつまみ部分） 
+" カラースキーム (Windows用gvim使用時はgvimrcを編集すること)
+colorscheme molokai
+"let g:molokai_original = 1
+let g:rehash256 = 1
+set background=dark
+
+" ポップアップ補完メニュー色設定（通常の項目、選択されている項目、スクロールバー、スクロールバーのつまみ部分） 
 highlight Pmenu       ctermfg=0 guifg=#000000 ctermbg=6 guibg=#4c745a 
 highlight PmenuSel    ctermfg=0 guifg=#000000 ctermbg=3 guibg=#d4b979 
 highlight PmenuSbar   ctermfg=0 guifg=#000000 ctermbg=0 guibg=#333333 
 highlight PmenuThumb  ctermfg=0 guifg=#000000 ctermbg=0 guibg=Red 
-highlight SpecialKeyi guifg=yellowgreen
+
+" カーソルの色を設定
+highlight Cursor guibg=Green guifg=Black gui=none
+
+" その他の色指定
+highlight SpecialKey  guifg=Brown gui=none
 highlight Folded      guifg=#D0FFD0 guibg=#304030 gui=none
 "}}}
 
