@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 24-Nov-2014.
+" Last Change: 25-Nov-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -329,19 +329,19 @@ function! s:bundle.hooks.on_source(bundle)
   let s:unite_source = {'name': 'neco'}
   function! s:unite_source.gather_candidates(args, context)
     let necos = [
-	  \ "~(-'_'-) goes right",
-	  \ "~(-'_'-) goes right and left",
-	  \ "~(-'_'-) goes right quickly",
-	  \ "~(-'_'-) goes right then smile",
-	  \ "~(-'_'-)  -8(*'_'*) go right and left",
-	  \ "(=' .' ) ~w",
-	  \ ]
+      \ "~(-'_'-) goes right",
+      \ "~(-'_'-) goes right and left",
+      \ "~(-'_'-) goes right quickly",
+      \ "~(-'_'-) goes right then smile",
+      \ "~(-'_'-)  -8(*'_'*) go right and left",
+      \ "(=' .' ) ~w",
+      \ ]
     return map(necos, '{
-	  \ "word": v:val,
-	  \ "source": "neco",
-	  \ "kind": "command",
-	  \ "action__command": "Neco " . v:key,
-	  \ }')
+      \ "word": v:val,
+      \ "source": "neco",
+      \ "kind": "command",
+      \ "action__command": "Neco " . v:key,
+      \ }')
   endfunction
   call unite#define_source(s:unite_source)
   "}}}
