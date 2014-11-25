@@ -25,7 +25,7 @@ GEM
       yard (~> 0.8)
     psych (2.0.6)
     rainbow (2.0.0)
-    rake (10.3.2)
+    rake (10.4.0)
     rdoc (4.1.2)
       json (~> 1.4)
     rubocop (0.27.1)
