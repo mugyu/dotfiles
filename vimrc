@@ -1,4 +1,3 @@
-set nocompatible
 scriptencoding utf-8
 filetype off
 " vim:set ts=8 sts=2 sw=2 tw=0 foldmethod=marker:
@@ -6,7 +5,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 25-Nov-2014.
+" Last Change: 02-Dec-2014.
 "
 
 "---------------------------------------------------------------------------
