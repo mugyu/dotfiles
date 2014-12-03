@@ -1,0 +1,91 @@
+-----------------------------------------------------------------
+-- 環境変数
+-----------------------------------------------------------------
+set{
+  PROMPT = "$e[31;40;1m[$P]$_$$ $e[37;1m",
+  SCRIPTLIB = "%HOME%\\script",
+  TERM = "msys",
+  LESS = "-q",
+  EDITOR = "gvim --remote-tab-wait-silent",
+  GREP_OPTiONS = "--color=auto",
+  SSL_CERT_FILE = "%HOME%\\.config\\openssl\\cacert.pem",
+}
+
+-- golang
+set {
+  GOROOT = "C:/tools/go",
+  GOPATH = "%HOME%/go",
+}
+addpath("%GOROOT%\\bin")
+
+-----------------------------------------------------------------
+-- path
+-----------------------------------------------------------------
+addpath("%SCRIPTLIB%\\batfile")
+addpath("C:\\tools\\devkit\\bin")
+addpath("C:\\tools\\devkit\\mingw\\bin")
+addpath("C:\\tools\\vim")
+addpath("C:\\tools\\ruby21\\bin")
+addpath("C:\\tools\\git\\bin")
+
+-----------------------------------------------------------------
+-- alias
+-----------------------------------------------------------------
+alias {
+  csc = "c:\\WINDOWS\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe",
+  vbc = "c:\\WINDOWS\\Microsoft.NET\\Framework64\\v4.0.30319\\vbc.exe",
+  jsc = "c:\\WINDOWS\\Microsoft.NET\\Framework64\\v4.0.30319\\jsc.exe",
+  MSBuild = "c:\\WINDOWS\\Microsoft.NET\\Framework\\v4.0.30319\\MSBuild.exe",
+}
+
+alias {
+  cp = "cp -i",
+  rm = "rm -i",
+  mv = "mv -i",
+  ll = "ls -l",
+}
+
+alias {
+  vi = "vim",
+  less = "c:\\tools\\vim\\vim74\\macros\\less.bat",
+}
+
+alias {
+  new = "cmd /c start ckw.exe",
+  nkf = "nkf -s",
+  find = "c:/tools/git/bin/find.exe",
+  time = "c:/tools/devkit/bin/time.exe",
+  gosh = "c:\\tools\\Gauche\\bin\\gosh.exe",
+  peco = "nkf -m0 -w -u | c:\\tools\\bin\\peco\\peco.exe",
+}
+
+-------------------------------------------------------------------
+-- suffix
+-------------------------------------------------------------------
+suffix(".pl", {"perl"})
+suffix(".py", {"ipy"})
+suffix(".rb", {"ruby"})
+suffix(".lua", {"lua"})
+suffix(".awk", {"awk","-f"})
+suffix(".js", {"cscript","//nologo"})
+suffix(".vbs", {"cscript","//nologo"})
+suffix(".ps1", {"powershell","-file"})
+
+suffix(".wsf", {"cscript","//nologo"})
+suffix(".txt", {"less"})
+
+-------------------------------------------------------------------
+-- comspec
+-------------------------------------------------------------------
+for _, name in pairs {
+  "notepad",
+  "hidemaru",
+  "taskmgr",
+  "mspaint",
+  "write",
+  "gvim",
+  "ckw",
+} do
+  nyagos.alias(name, "%COMSPEC% /c start " .. name .. " $*")
+end
+-- vim:set ft=lua: --
