@@ -33,6 +33,7 @@ set LESS=-q
 set EDITOR=gvim --remote-tab-wait-silent
 #set EDITOR=vim
 set GREP_OPTiONS=--color=auto
+set SSL_CERT_FILE=%HOME%\.config\openssl\cacert.pem
 
 #-----------------------------------------------------------------
 # alias
