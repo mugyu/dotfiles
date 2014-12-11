@@ -5,7 +5,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 02-Dec-2014.
+" Last Change: 11-Dec-2014.
 "
 
 "---------------------------------------------------------------------------
@@ -201,12 +201,12 @@ augroup END
 augroup Binary
   autocmd!
   autocmd BufReadPre  *.bin let &bin=1
-  autocmd BufReadPost *.bin if &bin | silent %!xxd -g 1
-  autocmd BufReadPost *.bin set ft=xxd | endif
-  autocmd BufWritePre *.bin if &bin | %!xxd -r
-  autocmd BufWritePre *.bin endif
-  autocmd BufWritePost *.bin if &bin | silent %!xxd -g 1
-  autocmd BufWritePost *.bin set nomod | endif
+  autocmd BufReadPost * if &bin | silent %!xxd -g 1
+  autocmd BufReadPost * set ft=xxd | endif
+  autocmd BufWritePre * if &bin | %!xxd -r
+  autocmd BufWritePre * endif
+  autocmd BufWritePost * if &bin | silent %!xxd -g 1
+  autocmd BufWritePost * set nomod | endif
 augroup END
 "}}}
 
