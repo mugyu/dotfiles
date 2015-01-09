@@ -5,7 +5,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 11-Dec-2014.
+" Last Change: 09-Jan-2015.
 "
 
 "---------------------------------------------------------------------------
@@ -1103,6 +1103,15 @@ let g:QFixMRU_EntryMax     = 300
 "{{{
 " add official plugin runtimepath
 set runtimepath+=$GOROOT/misc/vim
+"}}}
+
+"---------------------------------------------------------------------------
+" migemo
+"
+" refe: http://www.kaoriya.net/software/cmigemo/
+"
+"{{{
+set runtimepath+=~/.vim/migemo
 "}}}
 
 " End Of `Plugins Setting` }}}
