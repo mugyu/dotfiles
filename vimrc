@@ -5,7 +5,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 09-Jan-2015.
+" Last Change: 10-Jan-2015.
 "
 
 "---------------------------------------------------------------------------
@@ -572,6 +572,9 @@ endfunction
 unlet s:bundle
 "}}}
 
+" Golang
+NeoBundle 'vim-jp/vim-go-extra'
+
 " 非同期で外部コマンドを実行したりとか
 NeoBundle 'Shougo/vimproc.vim'
 " text-object の縁側版
@@ -1095,14 +1098,6 @@ let g:QFixMRU_Title = {
 
 " MRU内部のエントリ最大保持数
 let g:QFixMRU_EntryMax     = 300
-"}}}
-
-"---------------------------------------------------------------------------
-" golang
-"
-"{{{
-" add official plugin runtimepath
-set runtimepath+=$GOROOT/misc/vim
 "}}}
 
 "---------------------------------------------------------------------------
