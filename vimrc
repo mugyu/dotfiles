@@ -5,7 +5,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 10-Jan-2015.
+" Last Change: 29-Mar-2015.
 "
 
 "---------------------------------------------------------------------------
@@ -181,17 +181,6 @@ set colorcolumn=80
 "
 "{{{
 "let loaded_ruby_ftplugin = 1
-"}}}
-
-"---------------------------------------------------------------------------
-"  タイプの部分最適化
-"
-"{{{
-augroup OptimizeTyping
-  autocmd!
-  autocmd FileType html imap <buffer> <C-=> <%=  %><Esc>2hi
-  autocmd FileType html imap <buffer> <C-E> <%  %><Esc>2hi
-augroup END
 "}}}
 
 "---------------------------------------------------------------------------
