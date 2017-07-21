@@ -27,6 +27,12 @@ if dein#load_state('~/.cache/dein/')
   call dein#add('h1mesuke/vim-alignta')
   " レジスタの履歴を取得・再利用する<c-p>, <c-n>
   call dein#add('LeafCage/yankround.vim')
+  " カレンダー
+  call dein#add('vim-scripts/calendar.vim')
+  " nishigori/increment-activator
+  call dein#add('nishigori/increment-activator')
+  " 個人用 snippets
+  call dein#add('mugyu/vim-user-snippets')
 
   " You can specify revision/branch/tag.
 "  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })

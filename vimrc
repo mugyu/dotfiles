@@ -435,8 +435,6 @@ NeoBundle 'Shougo/neocomplete.vim'
 " NeoSnippet.vim スニペットのポップアップ補完
 "{{{
 NeoBundle 'Shougo/neosnippet.vim'
-" 個人用 snippets
-NeoBundle 'mugyu/vim-user-snippets'
 " neosnip.vim の default snippets
 NeoBundle 'Shougo/neosnippet-snippets'
 " その他 snippets
@@ -587,8 +585,6 @@ NeoBundle 'othree/eregex.vim'
 NeoBundle 'scrooloose/syntastic'
 " 書いたスクリプトを即実行 ,r
 NeoBundle 'thinca/vim-quickrun'
-" カレンダー
-NeoBundle 'calendar.vim'
 " 行単位のdiff
 " AndrewRadev/linediff.vim "{{{
 NeoBundleLazy 'AndrewRadev/linediff.vim', {
@@ -599,8 +595,6 @@ function! s:bundle.hooks.on_source(bundle)
 endfunction
 unlet s:bundle
 "}}}
-" nishigori/increment-activator
-NeoBundle 'nishigori/increment-activator'
 " QFixHowm 一人お手軽wikiもどき
 NeoBundle 'fuenor/qfixhowm'
 
