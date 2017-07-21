@@ -29,7 +29,6 @@ set GOPATH=%HOME%/go
 set PATH=%PATH%;%GOROOT%\bin
 
 set TERM=msys
-set LESS=-q
 set EDITOR=gvim --remote-tab-wait-silent
 #set EDITOR=vim
 set GREP_OPTiONS=--color=auto
