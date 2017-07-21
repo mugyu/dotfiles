@@ -1,11 +1,12 @@
 scriptencoding utf-8
+source $HOME/.vim/rc/dein.vim
 filetype off
 " vim:set ts=8 sts=2 sw=2 tw=0 foldmethod=marker:
 " (上記の行に関しては:help modelineを参照)
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 20-Jul-2017.
+" Last Change: 21-Jul-2017.
 "
 
 "---------------------------------------------------------------------------
@@ -610,9 +611,6 @@ unlet s:bundle
 NeoBundle 'nishigori/increment-activator'
 " QFixHowm 一人お手軽wikiもどき
 NeoBundle 'fuenor/qfixhowm'
-
-" colorscheme 'tomasr/molokai'
-NeoBundle 'tomasr/molokai'
 
 " remote でプログラムのbuild and nunした結果を返す
 NeoBundle 'rhysd/wandbox-vim'
