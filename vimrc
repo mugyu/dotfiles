@@ -575,12 +575,6 @@ NeoBundle 'vim-jp/vim-go-extra'
 
 " 非同期で外部コマンドを実行したりとか
 NeoBundle 'Shougo/vimproc.vim'
-" text-object の縁側版
-NeoBundle 'tpope/vim-surround'
-" vim-surrond とかの操作をリピートできる
-NeoBundle 'tpope/vim-repeat'
-" テキスト整形用
-NeoBundle 'h1mesuke/vim-alignta'
 " function,do,then などに対して end のようなものを補完する
 "NeoBundle 'tpope/vim-endwise'
 " [, (, {, ", ' に対して閉じカッコを補完
@@ -593,8 +587,6 @@ NeoBundle 'othree/eregex.vim'
 NeoBundle 'scrooloose/syntastic'
 " 書いたスクリプトを即実行 ,r
 NeoBundle 'thinca/vim-quickrun'
-" レジスタの履歴を取得・再利用する<c-p>, <c-n>
-NeoBundle "LeafCage/yankround.vim"
 " カレンダー
 NeoBundle 'calendar.vim'
 " 行単位のdiff
