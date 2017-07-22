@@ -1,0 +1,31 @@
+[[plugins]]
+# colorscheme
+repo = "tomasr/molokai"
+
+[[plugins]]
+# text-object の縁側版
+repo = "tpope/vim-surround"
+
+[[plugins]]
+# vim-surrond とかの操作をリピートできる
+repo = "tpope/vim-repeat"
+
+[[plugins]]
+# テキスト整形用
+repo = "h1mesuke/vim-alignta"
+
+[[plugins]]
+# レジスタの履歴を取得・再利用する<c-p>, <c-n>
+repo = "LeafCage/yankround.vim"
+
+[[plugins]]
+# カレンダー
+repo = "vim-scripts/calendar.vim"
+
+[[plugins]]
+# nishigori/increment-activator
+repo = "nishigori/increment-activator"
+
+[[plugins]]
+# 個人用 snippets
+repo = "mugyu/vim-user-snippets"

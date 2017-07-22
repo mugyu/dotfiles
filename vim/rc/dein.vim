@@ -16,23 +16,9 @@ if dein#load_state('~/.cache/dein/')
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
-
-  " colorscheme
-  call dein#add('tomasr/molokai')
-  " text-object の縁側版
-  call dein#add('tpope/vim-surround')
-  " vim-surrond とかの操作をリピートできる
-  call dein#add('tpope/vim-repeat')
-  " テキスト整形用
-  call dein#add('h1mesuke/vim-alignta')
-  " レジスタの履歴を取得・再利用する<c-p>, <c-n>
-  call dein#add('LeafCage/yankround.vim')
-  " カレンダー
-  call dein#add('vim-scripts/calendar.vim')
-  " nishigori/increment-activator
-  call dein#add('nishigori/increment-activator')
-  " 個人用 snippets
-  call dein#add('mugyu/vim-user-snippets')
+  let g:rc_dir    = expand('~/.vim/rc/')
+  let s:toml      = g:rc_dir . 'dein.toml'
+  call dein#load_toml(s:toml, { 'lazy': 0 })
 
   " You can specify revision/branch/tag.
 "  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
