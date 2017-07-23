@@ -551,8 +551,6 @@ unlet s:bundle
 
 " 非同期で外部コマンドを実行したりとか
 NeoBundle 'Shougo/vimproc.vim'
-" シンタックスチェックや臭いコードを調べる
-NeoBundle 'scrooloose/syntastic'
 " 書いたスクリプトを即実行 ,r
 NeoBundle 'thinca/vim-quickrun'
 " QFixHowm 一人お手軽wikiもどき

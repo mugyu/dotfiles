@@ -39,5 +39,9 @@ repo = "cohama/vim-smartinput-endwise"
 repo = "othree/eregex.vim"
 
 [[plugins]]
+# シンタックスチェックや臭いコードを調べる
+repo = "scrooloose/syntastic"
+
+[[plugins]]
 # 個人用 snippets
 repo = "mugyu/vim-user-snippets"
