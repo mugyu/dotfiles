@@ -18,7 +18,9 @@ if dein#load_state('~/.cache/dein/')
   " Add or remove your plugins here:
   let g:rc_dir    = expand('~/.vim/rc/')
   let s:toml      = g:rc_dir . 'dein.toml'
-  call dein#load_toml(s:toml, { 'lazy': 0 })
+  let s:toml_lazy = g:rc_dir . 'dein_lazy.toml'
+  call dein#load_toml(s:toml,      { 'lazy': 0 })
+  call dein#load_toml(s:toml_lazy, { 'lazy': 1 })
 
   " You can specify revision/branch/tag.
 "  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
