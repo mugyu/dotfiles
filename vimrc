@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 21-Jul-2017.
+" Last Change: 23-Jul-2017.
 "
 
 "---------------------------------------------------------------------------
@@ -600,11 +600,6 @@ NeoBundle 'fuenor/qfixhowm'
 
 " remote でプログラムのbuild and nunした結果を返す
 NeoBundle 'rhysd/wandbox-vim'
-
-" disable
-"{{{
-"NeoBundle 'Shougo/neocomplcache'
-"}}}
 
 call neobundle#end()
 "}}}
