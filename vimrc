@@ -561,9 +561,6 @@ endfunction
 unlet s:bundle
 "}}}
 
-" Golang
-NeoBundle 'vim-jp/vim-go-extra'
-
 " 非同期で外部コマンドを実行したりとか
 NeoBundle 'Shougo/vimproc.vim'
 " function,do,then などに対して end のようなものを補完する
