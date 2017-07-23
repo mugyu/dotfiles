@@ -563,8 +563,6 @@ unlet s:bundle
 
 " 非同期で外部コマンドを実行したりとか
 NeoBundle 'Shougo/vimproc.vim'
-" function,do,then などに対して end のようなものを補完する
-"NeoBundle 'tpope/vim-endwise'
 " [, (, {, ", ' に対して閉じカッコを補完
 NeoBundle 'kana/vim-smartinput'
 " do などに対して end を補完
