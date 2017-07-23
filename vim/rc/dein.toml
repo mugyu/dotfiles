@@ -27,5 +27,17 @@ repo = "vim-scripts/calendar.vim"
 repo = "nishigori/increment-activator"
 
 [[plugins]]
+# [, (, {, ", ' に対して閉じカッコを補完
+repo = "kana/vim-smartinput"
+
+[[plugins]]
+# do などに対して end を補完
+repo = "cohama/vim-smartinput-endwise"
+
+[[plugins]]
+# vim の正規表現を Perl や Ruby っぽくする
+repo = "othree/eregex.vim"
+
+[[plugins]]
 # 個人用 snippets
 repo = "mugyu/vim-user-snippets"

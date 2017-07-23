@@ -563,12 +563,6 @@ unlet s:bundle
 
 " 非同期で外部コマンドを実行したりとか
 NeoBundle 'Shougo/vimproc.vim'
-" [, (, {, ", ' に対して閉じカッコを補完
-NeoBundle 'kana/vim-smartinput'
-" do などに対して end を補完
-NeoBundle 'cohama/vim-smartinput-endwise'
-" vim の正規表現を Perl や Ruby っぽくする
-NeoBundle 'othree/eregex.vim'
 " シンタックスチェックや臭いコードを調べる
 NeoBundle 'scrooloose/syntastic'
 " 書いたスクリプトを即実行 ,r
