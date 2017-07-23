@@ -38,6 +38,7 @@ repo = "kana/vim-smartinput"
 [[plugins]]
 # do などに対して end を補完
 repo = "cohama/vim-smartinput-endwise"
+depends = 'vim-smartinput'
 
 [[plugins]]
 # vim の正規表現を Perl や Ruby っぽくする
@@ -62,6 +63,8 @@ repo = "Shougo/neocomplete.vim"
 [[plugins]]
 # NeoSnippet.vim スニペットのポップアップ補完
 repo = "Shougo/neosnippet.vim"
+depends = ['neosnippet-snippets', 'context_filetype.vim']
+on_i = 1
 
 [[plugins]]
 # neosnip.vim の default snippets

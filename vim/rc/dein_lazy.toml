@@ -28,8 +28,135 @@ on_ft = "scheme"
 
 [[plugins]]
 # 行単位のdiff
-repo = 'AndrewRadev/linediff.vim'
+repo = "AndrewRadev/linediff.vim"
 on_cmd = ["Linediff", "LinediffReset"]
+
+[[plugins]]
+repo = "Shougo/neomru.vim"
+
+# unite.vim
+[[plugins]]
+repo = "Shougo/unite.vim"
+depends = ["neomru.vim"]
+on_cmd = ["Unite", "UniteWithCurrentDir", "UniteWithBufferDir", "UniteWithInput", "UniteWithCursorWord", "UniteClose", "UniteBookmarkAdd"]
+hook_source = '''
+  " 起動時にinsertモード
+  let g:unite_enable_start_insert=1
+  " 縦分割でWindowをオープン
+  "let g:unite_enable_split_vertically=1
+  " Windowの幅
+  "let g:unite_winwidth=40
+  " ホームディレクトリ展開
+  call unite#custom#profile('files', 'substitute_patterns', {
+        \ 'pattern' : '^\~',
+        \ 'subst' : substitute(
+        \     unite#util#substitute_path_separator($HOME),
+        \           ' ', '\\\\ ', 'g'),
+        \ 'priority' : -100,
+        \ })
+  call unite#custom#profile('files', 'substitute_patterns', {
+        \ 'pattern' : '\.\{2,}\ze[^/]',
+        \ 'subst' : "\\=repeat('../', len(submatch(0))-1)",
+        \ 'priority' : 10000,
+        \ })
+  " レジスタの履歴
+  let g:unite_source_history_yank_enable = 1
+'''
+[[plugins]]
+repo = "Shougo/unite-outline"
+hook_source = '''
+  nnoremap <silent> ,uo :<C-u>Unite -buffer-name=outline outline<CR>
+'''
+
+# unite sources <<<<<<<<<<<<<<<<<<<<<<<<<
+[[plugins]]
+repo = "tsukkee/unite-tag"
+hook_source = '''
+  augroup UniteTagKeyMaping
+    autocmd!
+    autocmd BufEnter *
+      \   if empty(&buftype)
+      \|     noremap <silent> ,ut :<C-u>UniteWithCursorWord -immediately tag<CR>
+      \|  endif
+  augroup END
+'''
+
+[[plugins]]
+repo = "ujihisa/unite-gem"
+on_ft = "ruby"
+
+[[plugins]]
+repo = "ujihisa/unite-rake"
+on_ft = "ruby"
+
+[[plugins]]
+repo = "rhysd/unite-ruby-require.vim"
+on_ft = "ruby"
+hook_source = '''
+  nnoremap <silent> ,ui :<C-u>Unite -buffer-name=require ruby/require<CR>
+'''
+# unite sources >>>>>>>>>>>>>>>>>>>>>>>>>
+
+[[plugins]]
+repo = "Shougo/vimfiler.vim"
+depends = ["unite.vim", "vimproc.vim"]
+on_cmd = ["VimFiler", "VimFilerBufferDir"]
+hook_source = '''
+  " Edit file by tabedit.
+  "let g:vimfiler_edit_action = 'tabopen'
+
+  " Enable file operation commands.
+  "let g:vimfiler_safe_mode_by_default = 0
+
+  " Use trashbox.
+  " Windows only and require latest vimproc.
+  let g:unite_kind_file_use_trashbox = 1
+
+  " vimデフォルトのエクスプローラをvimfilerで置き換える
+  let g:vimfiler_as_default_explorer = 1
+  " カレントディレクトリを自動で変更する
+  let g:vimfiler_enable_auto_cd = 1
+  " 現在開いているバッファのディレクトリを開く
+  nnoremap <silent> ,f :<C-u>VimFilerBufferDir -quit<CR>
+  " 現在開いているバッファをIDE風に開く
+  nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+'''
+
+[[plugins]]
+repo = "Shougo/vimshell.vim"
+on_cmd = ["VimShell", "VimShellCreate", "VimShellTab", "VimShellPop", "VimShellCurrentDir", "VimShellBufferDir", "VimShellExecute", "VimShellInteractive", "VimShellTerminal", "VimShellSendString", "VimShellSendBuffer"]
+hook_source = '''
+  let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+  "let g:vimshell_right_prompt = 'vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
+  let g:vimshell_enable_smart_case = 1
+
+  if has('win32') || has('win64')
+    " Display user name on Windows.
+    let g:vimshell_prompt = $USERNAME."% "
+  else
+    " Display user name on Linux.
+    let g:vimshell_prompt = $USER."% "
+  endif
+
+  " Initialize execute file list.
+  let g:vimshell_execute_file_list = {}
+  call vimshell#set_execute_file('txt,vim,c,h,cpp,d,xml,java', 'vim')
+  let g:vimshell_execute_file_list['rb'] = 'ruby'
+  let g:vimshell_execute_file_list['pl'] = 'perl'
+  let g:vimshell_execute_file_list['py'] = 'python'
+  call vimshell#set_execute_file('html,xhtml', 'gexe firefox')
+
+  autocmd FileType vimshell
+  \ call vimshell#hook#add('chpwd', 'my_chpwd', 'MyChpwd')
+
+  function! MyChpwd(args, context)
+    call vimshell#execute('ls')
+  endfunction
+
+  autocmd FileType int-* call s:interactive_settings()
+  function! s:interactive_settings()
+  endfunction
+'''
 
 [[plugins]]
 # Vimdoc-ja 日本語ヘルプ
