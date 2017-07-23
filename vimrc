@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 23-Jul-2017.
+" Last Change: 24-Jul-2017.
 "
 
 "---------------------------------------------------------------------------
@@ -418,16 +418,6 @@ nnoremap <silent> ,uh  :<C-u>Unite -no-start-insert qfixhowm<CR>
 "}}}
 "}}}
 
-" NeoComplate ポップアップ補完
-NeoBundle 'Shougo/neocomplete.vim'
-" NeoSnippet.vim スニペットのポップアップ補完
-"{{{
-NeoBundle 'Shougo/neosnippet.vim'
-" neosnip.vim の default snippets
-NeoBundle 'Shougo/neosnippet-snippets'
-" その他 snippets
-NeoBundle 'honza/vim-snippets'
-"}}}
 
 " VimShell
 "{{{
@@ -515,46 +505,6 @@ function! s:bundle.hooks.on_source(bundle)
 endfunction
 unlet s:bundle
 "}}}
-
-" Ruby
-" vim-ruby/vim-ruby "{{{
-NeoBundleLazy 'vim-ruby/vim-ruby', {
-\  'autoload': {'filetypes': ['ruby']}
-\}
-let s:bundle = neobundle#get('vim-ruby')
-function! s:bundle.hooks.on_source(bundle)
-endfunction
-unlet s:bundle
-"}}}
-" ecomba/vim-ruby-refactoring "{{{
-NeoBundleLazy 'ecomba/vim-ruby-refactoring', {
-\  'autoload': {'filetypes': ['ruby']}
-\}
-let s:bundle = neobundle#get('vim-ruby-refactoring')
-function! s:bundle.hooks.on_source(bundle)
-  " デフォルトのキーマップを有効にする
-  let g:ruby_refactoring_map_keys=0
-endfunction
-unlet s:bundle
-"}}}
-
-" Gauche(scheme)
-" aharisu/vim-gdev "{{{
-NeoBundleLazy 'aharisu/vim-gdev', {
-\  'autoload': {'filetypes': ['scheme']}
-\}
-let s:bundle = neobundle#get('vim-gdev')
-function! s:bundle.hooks.on_source(bundle)
-endfunction
-unlet s:bundle
-"}}}
-
-" 非同期で外部コマンドを実行したりとか
-NeoBundle 'Shougo/vimproc.vim'
-" 書いたスクリプトを即実行 ,r
-NeoBundle 'thinca/vim-quickrun'
-" QFixHowm 一人お手軽wikiもどき
-NeoBundle 'fuenor/qfixhowm'
 
 call neobundle#end()
 "}}}

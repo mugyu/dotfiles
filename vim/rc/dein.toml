@@ -1,4 +1,9 @@
 [[plugins]]
+# 非同期で外部コマンドを実行したりとか
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
 # colorscheme
 repo = "tomasr/molokai"
 
@@ -41,6 +46,30 @@ repo = "othree/eregex.vim"
 [[plugins]]
 # シンタックスチェックや臭いコードを調べる
 repo = "scrooloose/syntastic"
+
+[[plugins]]
+# 書いたスクリプトを即実行 ,r
+repo = "thinca/vim-quickrun"
+
+[[plugins]]
+# QFixHowm 一人お手軽wikiもどき
+repo = "fuenor/qfixhowm"
+
+[[plugins]]
+# NeoComplate ポップアップ補完
+repo = "Shougo/neocomplete.vim"
+
+[[plugins]]
+# NeoSnippet.vim スニペットのポップアップ補完
+repo = "Shougo/neosnippet.vim"
+
+[[plugins]]
+# neosnip.vim の default snippets
+repo = "Shougo/neosnippet-snippets"
+
+[[plugins]]
+# その他 snippets
+repo = "honza/vim-snippets"
 
 [[plugins]]
 # 個人用 snippets

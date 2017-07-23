@@ -8,6 +8,24 @@ on_ft = "toml"
 repo = "vim-jp/vim-go-extra"
 on_ft = "golang"
 
+# Ruby
+[[plugins]]
+repo = "vim-ruby/vim-ruby"
+on_ft = "ruby"
+
+[[plugins]]
+repo = "ecomba/vim-ruby-refactoring"
+on_ft = "ruby"
+hook_source = '''
+  " デフォルトのキーマップを有効にする
+  let g:ruby_refactoring_map_keys=0
+'''
+
+[[plugins]]
+# Gauche(scheme)
+repo = "aharisu/vim-gdev"
+on_ft = "scheme"
+
 [[plugins]]
 # 行単位のdiff
 repo = 'AndrewRadev/linediff.vim'
