@@ -159,6 +159,32 @@ hook_source = '''
 '''
 
 [[plugins]]
+# NeoComplate ポップアップ補完
+repo = "Shougo/neocomplete.vim"
+on_i = 1
+
+[[plugins]]
+# NeoSnippet.vim スニペットのポップアップ補完
+repo = "Shougo/neosnippet.vim"
+depends = ["neosnippet-snippets"]
+on_i = 1
+
+[[plugins]]
+# neosnip.vim の default snippets
+repo = "Shougo/neosnippet-snippets"
+on_source = "neosnippet.vim"
+
+[[plugins]]
+# その他 snippets
+repo = "honza/vim-snippets"
+on_source = "neosnippet.vim"
+
+[[plugins]]
+# 個人用 snippets
+repo = "mugyu/vim-user-snippets"
+on_source = "neosnippet.vim"
+
+[[plugins]]
 # Vimdoc-ja 日本語ヘルプ
 repo = "vim-jp/vimdoc-ja"
 on_cmd = "help"

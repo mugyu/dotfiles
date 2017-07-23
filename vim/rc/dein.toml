@@ -55,25 +55,3 @@ repo = "thinca/vim-quickrun"
 [[plugins]]
 # QFixHowm 一人お手軽wikiもどき
 repo = "fuenor/qfixhowm"
-
-[[plugins]]
-# NeoComplate ポップアップ補完
-repo = "Shougo/neocomplete.vim"
-
-[[plugins]]
-# NeoSnippet.vim スニペットのポップアップ補完
-repo = "Shougo/neosnippet.vim"
-depends = ['neosnippet-snippets', 'context_filetype.vim']
-on_i = 1
-
-[[plugins]]
-# neosnip.vim の default snippets
-repo = "Shougo/neosnippet-snippets"
-
-[[plugins]]
-# その他 snippets
-repo = "honza/vim-snippets"
-
-[[plugins]]
-# 個人用 snippets
-repo = "mugyu/vim-user-snippets"
