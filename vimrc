@@ -393,18 +393,6 @@ augroup UniteTagKeyMaping
     \|  endif
 augroup END
 "}}}
-" codic の辞書
-"{{{
-NeoBundle 'rhysd/unite-codic.vim', {
-\  'depends': [
-\      'koron/codic-vim',
-\      'Shougo/unite.vim',
-\      'Shougo/vimproc.vim'
-\  ]
-\}
-" with Unite.vim
-nnoremap <silent> ,uc :<C-u>Unite codic<CR>
-"}}}
 " rhysd/unite-ruby-require.vim
 "{{{
 NeoBundleLazy 'rhysd/unite-ruby-require.vim', {
