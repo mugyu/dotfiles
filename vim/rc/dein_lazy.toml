@@ -9,6 +9,11 @@ repo = "vim-jp/vim-go-extra"
 on_ft = "golang"
 
 [[plugins]]
+# 行単位のdiff
+repo = 'AndrewRadev/linediff.vim'
+on_cmd = ["Linediff", "LinediffReset"]
+
+[[plugins]]
 # Vimdoc-ja 日本語ヘルプ
 repo = "vim-jp/vimdoc-ja"
 on_cmd = "help"

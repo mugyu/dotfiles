@@ -555,16 +555,6 @@ NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'scrooloose/syntastic'
 " 書いたスクリプトを即実行 ,r
 NeoBundle 'thinca/vim-quickrun'
-" 行単位のdiff
-" AndrewRadev/linediff.vim "{{{
-NeoBundleLazy 'AndrewRadev/linediff.vim', {
-\  'autoload': {'commands': ['Linediff', 'LinediffReset']}
-\}
-let s:bundle = neobundle#get('linediff.vim')
-function! s:bundle.hooks.on_source(bundle)
-endfunction
-unlet s:bundle
-"}}}
 " QFixHowm 一人お手軽wikiもどき
 NeoBundle 'fuenor/qfixhowm'
 
