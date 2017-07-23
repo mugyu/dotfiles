@@ -556,9 +556,6 @@ NeoBundle 'thinca/vim-quickrun'
 " QFixHowm 一人お手軽wikiもどき
 NeoBundle 'fuenor/qfixhowm'
 
-" remote でプログラムのbuild and nunした結果を返す
-NeoBundle 'rhysd/wandbox-vim'
-
 call neobundle#end()
 "}}}
 
@@ -814,15 +811,6 @@ let g:quickrun_config = {
 \       'runner/vimproc/updatetime': 60,
 \   },
 \   'lua': {'command': 'luajit'},
-\}
-" with wandbox-vim
-let g:quickrun_config = {
-\   'groovy':  {'runner': 'wandbox'},
-\   'haskell': {'runner': 'wandbox'},
-\   'pascal':  {'runner': 'wandbox'},
-\   'php':     {'runner': 'wandbox'},
-\   'python':  {'runner': 'wandbox'},
-\   'rust':    {'runner': 'wandbox'},
 \}
 "}}}
 
