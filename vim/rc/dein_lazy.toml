@@ -3,4 +3,7 @@
 repo = "cespare/vim-toml"
 on_ft = "toml"
 
-
+[[plugins]]
+# Vimdoc-ja 日本語ヘルプ
+repo = "vim-jp/vimdoc-ja"
+on_cmd = "help"

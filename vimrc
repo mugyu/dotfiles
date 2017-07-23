@@ -528,13 +528,6 @@ endfunction
 unlet s:bundle
 "}}}
 
-" Vimdoc-ja 日本語ヘルプ
-"{{{
-NeoBundleLazy 'vim-jp/vimdoc-ja', {
-\  'autoload': {'commands': ['help']}
-\}
-"}}}
-
 " Ruby
 " vim-ruby/vim-ruby "{{{
 NeoBundleLazy 'vim-ruby/vim-ruby', {
