@@ -18,6 +18,7 @@ set PATH=%PATH%;c:\tools\vim
 set PATH=%PATH%;c:\tools\ruby21\bin
 set PATH=%PATH%;c:\tools\nodejs
 set PATH=%PATH%;c:\tools\msys\usr\bin
+set PATH=%PATH%;c:\tools\msys\mingw64\bin
 set PATH=%PATH%;c:\tools\git\bin
 set PATH=%PATH%;c:\tools\git\mingw64\bin
 set PATH=%SCRIPTLIB%\batfile;%PATH%
