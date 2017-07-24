@@ -279,11 +279,6 @@ call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 "}}}
 
-" Unite Source
-"{{{
-NeoBundle 'kmnk/vim-unite-giti'
-"}}}
-
 call neobundle#end()
 "}}}
 
