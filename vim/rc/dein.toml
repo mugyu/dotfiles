@@ -54,11 +54,25 @@ repo = "nishigori/increment-activator"
 [[plugins]]
 # [, (, {, ", ' に対して閉じカッコを補完
 repo = "kana/vim-smartinput"
+hook_add = '''
+  call smartinput#map_to_trigger('i', '<Plug>(smartinput_BS)',
+        \                        '<BS>',
+        \                        '<BS>')
+  call smartinput#map_to_trigger('i', '<Plug>(smartinput_C-h)',
+        \                        '<BS>',
+        \                        '<C-h>')
+  call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)',
+        \                        '<Enter>',
+        \                        '<Enter>')
+'''
 
 [[plugins]]
 # do などに対して end を補完
 repo = "cohama/vim-smartinput-endwise"
 depends = 'vim-smartinput'
+hook_add = '''
+  call smartinput_endwise#define_default_rules()
+'''
 
 [[plugins]]
 # vim の正規表現を Perl や Ruby っぽくする
