@@ -95,6 +95,18 @@ on_ft = "ruby"
 hook_source = '''
   nnoremap <silent> ,ui :<C-u>Unite -buffer-name=require ruby/require<CR>
 '''
+
+[[plugins]]
+# howm 一人お手軽wikiもどき
+repo = "osyo-manga/unite-qfixhowm"
+on_source = "unite.vim"
+hook_source = '''
+  call unite#custom_source('qfixhowm', 'sorters',
+       \ ['sorter_qfixhowm_updatetime', 'sorter_reverse'])
+'''
+hook_add = '''
+  nnoremap <silent> ,uh  :<C-u>Unite -no-start-insert qfixhowm<CR>
+'''
 # unite sources >>>>>>>>>>>>>>>>>>>>>>>>>
 
 [[plugins]]
