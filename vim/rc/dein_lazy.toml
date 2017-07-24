@@ -139,6 +139,14 @@ hook_add = '''
 repo = "Shougo/vimfiler.vim"
 depends = ["unite.vim", "vimproc.vim"]
 on_cmd = ["VimFiler", "VimFilerBufferDir"]
+hook_add = '''
+  ""現在開いているバッファのディレクトリを開く
+  nnoremap <silent> ,ff :<C-u>VimFilerBufferDir -quit<CR>
+  "現在開いているバッファをIDE風に開く
+  nnoremap <silent> ,fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+  nnoremap <silent> ,fv :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+  nnoremap <silent> ,fc :<C-u>VimFilerCurrentDir<CR>
+'''
 hook_source = '''
   " Edit file by tabedit.
   "let g:vimfiler_edit_action = 'tabopen'
