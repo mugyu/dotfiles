@@ -1,5 +1,5 @@
 " Snippets Directory
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/bundle/vim-user-snippets'
+let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/honza/vim-snippets/snippets, ~/.cache/dein/repos/github.com/mugyu/vim-user-snippets'
 
 " Plugin key-mappings.
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -25,5 +25,5 @@ nnoremap <silent> ,us :<C-u>Unite neosnippet<CR>
 augroup SnippetsSetting
   autocmd!
   " RubyGems
-  autocmd BufNewFile,BufRead *.gemspec NeoSnippetSource ~/.vim/bundle/vim-user-snippets/gemspec.snippets
+  autocmd BufNewFile,BufRead *.gemspec NeoSnippetSource ~/.cache/dein/repos/github.com/mugyu/vim-user-snippets/gemspec.snippets
 augroup END
