@@ -40,53 +40,10 @@ repo = "Shougo/unite.vim"
 depends = ["neomru.vim"]
 on_cmd = ["Unite", "UniteWithCurrentDir", "UniteWithBufferDir", "UniteWithInput", "UniteWithCursorWord", "UniteClose", "UniteBookmarkAdd"]
 hook_add = '''
-  " Unite.vim keymap
-  "
-  " 常用セット
-  nnoremap <silent> ,uu :<C-u>Unite buffer_tab neomru/file<CR>
-  " バッファ一覧
-  nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-  " ファイル一覧
-  nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -start-insert -buffer-name=files file<CR>
-  " レジスタ一覧
-  nnoremap <silent> ,uR :<C-u>Unite -buffer-name=register register history/yank<CR>
-  " 最近使用したファイル一覧
-  nnoremap <silent> ,um :<C-u>Unite neomru/file<CR>
-  " ジャンプ
-  nnoremap <silent> ,uj :<C-u>Unite jump<CR>
-  " タブ一覧
-  nnoremap <silent> ,ul :<C-u>Unite tab<CR>
-  " 全部乗せ
-  nnoremap <silent> ,ua :<C-u>UniteWithCurrentDir -buffer-name=files buffer neomru/file bookmark file_rec<CR>
-  " バッファ内検索
-  nnoremap <silent> ,u/ :<C-u>Unite -buffer-name=search -start-insert line/fast -no-quit<CR>
-  "nnoremap <silent> g/  :<C-u>Unite -buffer-name=search -start-insert line -no-quit<CR>
-  " history/yank
-  nmap <silent> ,uy :<C-u>Unite history/yank register<CR>
-  xnoremap <silent> ,uy d:<C-u>Unite -buffer-name=register history/yank register<CR>
+  source $HOME/.vim/rc/plugins/unite.keymap.vim
 '''
 hook_source = '''
-  " 起動時にinsertモード
-  let g:unite_enable_start_insert=1
-  " 縦分割でWindowをオープン
-  "let g:unite_enable_split_vertically=1
-  " Windowの幅
-  "let g:unite_winwidth=40
-  " ホームディレクトリ展開
-  call unite#custom#profile('files', 'substitute_patterns', {
-        \ 'pattern' : '^\~',
-        \ 'subst' : substitute(
-        \     unite#util#substitute_path_separator($HOME),
-        \           ' ', '\\\\ ', 'g'),
-        \ 'priority' : -100,
-        \ })
-  call unite#custom#profile('files', 'substitute_patterns', {
-        \ 'pattern' : '\.\{2,}\ze[^/]',
-        \ 'subst' : "\\=repeat('../', len(submatch(0))-1)",
-        \ 'priority' : 10000,
-        \ })
-  " レジスタの履歴
-  let g:unite_source_history_yank_enable = 1
+  source $HOME/.vim/rc/plugins/unite.rc.vim
 '''
 [[plugins]]
 repo = "Shougo/unite-outline"
@@ -140,85 +97,20 @@ repo = "Shougo/vimfiler.vim"
 depends = ["unite.vim", "vimproc.vim"]
 on_cmd = ["VimFiler", "VimFilerBufferDir"]
 hook_add = '''
-  ""現在開いているバッファのディレクトリを開く
-  nnoremap <silent> ,ff :<C-u>VimFilerBufferDir -quit<CR>
-  "現在開いているバッファをIDE風に開く
-  nnoremap <silent> ,fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
-  nnoremap <silent> ,fv :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
-  nnoremap <silent> ,fc :<C-u>VimFilerCurrentDir<CR>
+  source $HOME/.vim/rc/plugins/vimfiler.keymap.vim
 '''
 hook_source = '''
-  " Edit file by tabedit.
-  "let g:vimfiler_edit_action = 'tabopen'
-
-  " Enable file operation commands.
-  "let g:vimfiler_safe_mode_by_default = 0
-
-  " Use trashbox.
-  " Windows only and require latest vimproc.
-  let g:unite_kind_file_use_trashbox = 1
-
-  " vimデフォルトのエクスプローラをvimfilerで置き換える
-  let g:vimfiler_as_default_explorer = 1
-  " カレントディレクトリを自動で変更する
-  let g:vimfiler_enable_auto_cd = 1
-  " 現在開いているバッファのディレクトリを開く
-  nnoremap <silent> ,f :<C-u>VimFilerBufferDir -quit<CR>
-  " 現在開いているバッファをIDE風に開く
-  nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+  source $HOME/.vim/rc/plugins/vimfiler.rc.vim
 '''
 
 [[plugins]]
 repo = "Shougo/vimshell.vim"
 on_cmd = ["VimShell", "VimShellCreate", "VimShellTab", "VimShellPop", "VimShellCurrentDir", "VimShellBufferDir", "VimShellExecute", "VimShellInteractive", "VimShellTerminal", "VimShellSendString", "VimShellSendBuffer"]
 hook_add = '''
-  "http://nauthiz.hatenablog.com/entry/20101107/1289140518
-  " ,is: シェルを起動
-  nnoremap <silent> ,is :VimShell<CR>
-  " ,irb: irbを非同期で起動
-  nnoremap <silent> ,irb :VimShellInteractive irb<CR>
-  " ,pry: pryを非同期で起動
-  nnoremap <silent> ,pry :VimShellInteractive pry<CR>
-  " ,gosh goshを非同期で起動
-  nnoremap <silent> ,gosh :VimShellInteractive gosh<CR>
-  " ,sqlite sqlite3を非同期で起動
-  nnoremap <silent> ,sql :VimShellInteractive sqlite3<CR>
-  " ,ss: 非同期で開いたインタプリタに現在の行を評価させる
-  vmap <silent> ,ss :VimShellSendString<CR>
-  " 選択中に,ss: 非同期で開いたインタプリタに選択行を評価させる
-  nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
+  source $HOME/.vim/rc/plugins/vimshell.keymap.vim
 '''
 hook_source = '''
-  let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-  "let g:vimshell_right_prompt = 'vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
-  let g:vimshell_enable_smart_case = 1
-
-  if has('win32') || has('win64')
-    " Display user name on Windows.
-    let g:vimshell_prompt = $USERNAME."% "
-  else
-    " Display user name on Linux.
-    let g:vimshell_prompt = $USER."% "
-  endif
-
-  " Initialize execute file list.
-  let g:vimshell_execute_file_list = {}
-  call vimshell#set_execute_file('txt,vim,c,h,cpp,d,xml,java', 'vim')
-  let g:vimshell_execute_file_list['rb'] = 'ruby'
-  let g:vimshell_execute_file_list['pl'] = 'perl'
-  let g:vimshell_execute_file_list['py'] = 'python'
-  call vimshell#set_execute_file('html,xhtml', 'gexe firefox')
-
-  autocmd FileType vimshell
-  \ call vimshell#hook#add('chpwd', 'my_chpwd', 'MyChpwd')
-
-  function! MyChpwd(args, context)
-    call vimshell#execute('ls')
-  endfunction
-
-  autocmd FileType int-* call s:interactive_settings()
-  function! s:interactive_settings()
-  endfunction
+  source $HOME/.vim/rc/plugins/vimshell.rc.vim
 '''
 
 [[plugins]]
@@ -226,126 +118,7 @@ hook_source = '''
 repo = "Shougo/neocomplete.vim"
 on_i = 1
 hook_source = '''
-  " Use neocomplete.
-  let g:neocomplete#enable_at_startup = 1
-
-  " Use smartcase.
-  let g:neocomplete#enable_smart_case = 1
-
-  " Set minimum syntax keyword length.
-  let g:neocomplete#sources#syntax#min_keyword_length = 3
-  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-  " Define dictionary.
-  let g:neocomplate#sources#dictionary#dictionaries = {
-      \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.vimshell/command-history',
-      \ 'scheme' : $HOME.'/.vim/dict/gosh.dict',
-      \ 'ruby' : $HOME.'/.vim/dict/ruby.dict'
-      \ }
-
-  " Define keyword.
-  if !exists('g:neocomplete#keyword_patterns')
-      let g:neocomplete#keyword_patterns = {}
-  endif
-  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-  " Plugin key-mappings.
-  inoremap <expr><C-g> neocomplete#undo_completion()
-  inoremap <expr><C-l> neocomplete#complete_common_string()
-
-  " Recommended key-mappings.
-  " <CR>: close popup and save indent.
-  "inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
-    return neocomplete#smart_close_popup() . "\<CR>"
-    " For no inserting <CR> key.
-    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-  endfunction
-  " <TAB>: completion.
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  " <C-h>, <BS>: close popup and delete backword char.
-  "inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-  "inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><C-y>  neocomplete#close_popup()
-  inoremap <expr><C-e>  neocomplete#cancel_popup()
-  " <BS> でポップアップを閉じて文字を削除
-  imap <expr> <BS>
-        \ neocomplete#smart_close_popup() . "\<Plug>(smartinput_BS)"
-
-  " <C-h> でポップアップを閉じて文字を削除
-  imap <expr> <C-h>
-        \ neocomplete#smart_close_popup() . "\<Plug>(smartinput_C-h)"
-
-  " <CR> でポップアップ中の候補を選択し改行する
-  imap <expr> <CR>
-        \ neocomplete#smart_close_popup() . "\<Plug>(smartinput_CR)"
-
-  " <CR> でポップアップ中の候補を選択するだけで、改行はしないバージョン
-  " ポップアップがないときには改行する
-  imap <expr> <CR> pumvisible() ?
-        \ neocomplete#close_popup() : "\<Plug>(smartinput_CR)"
-  " Close popup by <Space>.
-  "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-  " For cursor moving in insert mode(Not recommended)
-  "inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-  "inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-  "inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-  "inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-  " Or set this.
-  "let g:neocomplete#enable_cursor_hold_i = 1
-  " Or set this.
-  "let g:neocomplete#enable_insert_char_pre = 1
-
-  " AutoComplPop like behavior.
-  "let g:neocomplete#enable_auto_select = 1
-
-  " Shell like behavior(not recommended).
-  "set completeopt+=longest
-  "let g:neocomplete#enable_auto_select = 1
-  "let g:neocomplete#disable_auto_complete = 1
-  "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-  " Enable omni completion.
-  augroup NeoComplateEnableCmniComplation
-    autocmd!
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  augroup END
-
-  " Enable heavy omni completion.
-  if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-  endif
-  if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-  endif
-  let g:neocomplete#sources#omni#input_patterns.ruby =
-  \ '[^. *\t]\.\w*\|\h\w*::'
-  let g:neocomplete#sources#omni#input_patterns.php =
-  \ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.c =
-  \ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.cpp =
-  \ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-
-  " For perlomni.vim setting.
-  " https://github.com/c9s/perlomni.vim
-  let g:neocomplete#sources#omni#input_patterns.perl =
-  \ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-
-  " For smart TAB completion.
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-          \ <SID>check_back_space() ? "\<TAB>" :
-          \ neocomplete#start_manual_complete()
-    function! s:check_back_space() "{{{
-      let col = col('.') - 1
-      return !col || getline('.')[col - 1]  =~ '\s'
-    endfunction "}}}
+  source $HOME/.vim/rc/plugins/neocomplete.rc.vim
 '''
 
 [[plugins]]
@@ -354,35 +127,7 @@ repo = "Shougo/neosnippet.vim"
 depends = ["neosnippet-snippets"]
 on_i = 1
 hook_source = '''
-  " Snippets Directory
-  let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/bundle/vim-user-snippets'
-
-  " Plugin key-mappings.
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  " Unite.vim
-  imap <C-s> <Plug>(neocomplete_start_unite_snippet)
-
-  " SuperTab like snippets behavior.
-  imap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-  " For snippet_complete marker.
-  if has('conceal')
-    set conceallevel=2 concealcursor=i
-  endif
-
-  " Enable snipMate compatibility feature.
-  " let g:neosnippet#enable_snipmate_compatibility = 1
-
-  " with Unit.vim
-  nnoremap <silent> ,us :<C-u>Unite neosnippet<CR>
-
-  augroup SnippetsSetting
-    autocmd!
-    " RubyGems
-    autocmd BufNewFile,BufRead *.gemspec NeoSnippetSource ~/.vim/bundle/vim-user-snippets/gemspec.snippets
-  augroup END
+  source $HOME/.vim/rc/plugins/neosnippet.rc.vim
 '''
 
 [[plugins]]

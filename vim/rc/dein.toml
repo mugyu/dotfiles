@@ -11,24 +11,7 @@ repo = "tomasr/molokai"
 # text-object の縁側版
 repo = "tpope/vim-surround"
 hook_add = '''
-  augroup VimSurroundFileTypeSetting
-    " ruby
-    autocmd!
-    autocmd FileType ruby let b:surround_{char2nr("i")} = "if \1condition: \1 \r end"
-    autocmd FileType ruby let b:surround_{char2nr("d")} = "def \1method: \1 \r end"
-    " erb
-    autocmd FileType eruby let b:surround_{char2nr("-")} = "<% \r %>"
-    autocmd FileType eruby let b:surround_{char2nr("%")} = "<% \r %>"
-    autocmd FileType eruby let b:surround_{char2nr("=")} = "<%= \r %>"
-    " php
-    autocmd FileType php let b:surround_{char2nr("-")} = "<? \r ?>"
-    autocmd FileType php let b:surround_{char2nr("?")} = "<? \r ?>"
-    autocmd FileType php let b:surround_{char2nr("=")} = "<?= \r ?>"
-    autocmd FileType php let b:surround_{char2nr("a")} = "array(\r)"
-    " javascript
-    autocmd FileType javascript let b:surround_{char2nr("f")} = "function \1function:\1() {\r}"
-    autocmd FileType javascript let b:surround_{char2nr("F")} = "function() {\r}"
-  augroup END
+  source $HOME/.vim/rc/plugins/vim-surround.rc.vim
 '''
 
 [[plugins]]
@@ -43,24 +26,7 @@ repo = "h1mesuke/vim-alignta"
 # レジスタの履歴を取得・再利用する<c-p>, <c-n>
 repo = "LeafCage/yankround.vim"
 hook_add = '''
-  " keymap
-  nmap p <Plug>(yankround-p)
-  xmap p <Plug>(yankround-p)
-  nmap P <Plug>(yankround-P)
-  nmap gp <Plug>(yankround-gp)
-  xmap gp <Plug>(yankround-gp)
-  nmap gP <Plug>(yankround-gP)
-  nmap <C-p> <Plug>(yankround-prev)
-  nmap <C-n> <Plug>(yankround-next)
-
-  " yankound history with unite.vim
-  nnoremap <silent> ,ur :<C-u>Unite -buffer-name=yankound yankround<CR>
-
-  " highlight
-  let g:yankround_use_region_hl=1
-
-  " cache directory
-  let g:yankround_dir="~/.cache/yankround"
+  source $HOME/.vim/rc/plugins/yankround.rc.vim
 '''
 
 [[plugins]]
@@ -71,77 +37,14 @@ repo = "vim-scripts/calendar.vim"
 # nishigori/increment-activator
 repo = "nishigori/increment-activator"
 hook_add = '''
-  let g:increment_activator_filetype_candidates =
-  \ {
-  \   '_': [
-  \     [
-  \       'zero', 'one', 'two', 'three', 'four', 'five',
-  \       'six',  'seven', 'eight', 'nine', 'ten',
-  \       'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
-  \       'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'
-  \     ],
-  \     [
-  \       '1st', '2nd', '3rd', '4th', '5th',
-  \       '6th', '7th', '8th', '9th', '10th',
-  \       '11th', '12th', '13th', '14th', '15th',
-  \       '16th', '17th', '18th', '19th', '20th',
-  \     ],
-  \     [
-  \       'first', 'second', 'third', 'fourth', 'fifth',
-  \       'sixth', 'seventh', 'eighth', 'ninth', 'tenth',
-  \       'eleventh', 'twelfth', 'thirteenth', 'fourteenth', 'fifteenth',
-  \       'sixteenth', 'seventeenth', 'eighteenth', 'nineteenth', 'twentieth',
-  \     ],
-  \     ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x'],
-  \     ['foo', 'bar', 'baz', 'qux', 'quux', 'hoge', 'piyo', 'fuga', 'hogera'],
-  \     ['left', 'right'],
-  \     ['top', 'bottom'],
-  \     ['noth', 'east', 'south', 'west'],
-  \     ['under', 'over'],
-  \     ['start', 'stop'],
-  \     ['begin', 'end'],
-  \     ['next', 'previous'],
-  \     ['read', 'write'],
-  \     ['draw', 'erase'],
-  \     ['old', 'new'],
-  \     ['first', 'second', 'th'],
-  \     ['min', 'max'],
-  \     ['head', 'body', 'tail'],
-  \     ['lose', 'find'],
-  \     ['in', 'out'],
-  \     ['input', 'output'],
-  \     ['export', 'inport'],
-  \     ['parent', 'child', 'children'],
-  \     ['push', 'pull', 'pop'],
-  \     ['good', 'bad'],
-  \     ['same', 'different'],
-  \     ['create', 'destory'],
-  \     ['prefix', 'sufix'],
-  \     ['some', 'any', 'every', 'no'],
-  \   ],
-  \   'ruby': [
-  \     ['if', 'unless'],
-  \   ],
-  \   'php': [
-  \     ['extends', 'implements'],
-  \     ['require', 'require_once', 'imclude', 'include_once'],
-  \   ]
-  \ }
+  source $HOME/.vim/rc/plugins/increment-activator.rc.vim
 '''
 
 [[plugins]]
 # [, (, {, ", ' に対して閉じカッコを補完
 repo = "kana/vim-smartinput"
 hook_add = '''
-  call smartinput#map_to_trigger('i', '<Plug>(smartinput_BS)',
-        \                        '<BS>',
-        \                        '<BS>')
-  call smartinput#map_to_trigger('i', '<Plug>(smartinput_C-h)',
-        \                        '<BS>',
-        \                        '<C-h>')
-  call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)',
-        \                        '<Enter>',
-        \                        '<Enter>')
+  source $HOME/.vim/rc/plugins/vim-smartinput.rc.vim
 '''
 
 [[plugins]]
@@ -160,90 +63,19 @@ repo = "othree/eregex.vim"
 # シンタックスチェックや臭いコードを調べる
 repo = "scrooloose/syntastic"
 hook_add = '''
-  let g:syntastic_javascript_checkers = ['jsl']
-  let g:syntastic_javascript_args = '-conf "c:/home/jsl.conf"'
-  let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+  source $HOME/.vim/rc/plugins/syntastic.rc.vim
 '''
 
 [[plugins]]
 # 書いたスクリプトを即実行 ,r
 repo = "thinca/vim-quickrun"
 hook_add = '''
-  " KEY MAP
-  let g:quickrun_no_default_key_mappings = 1
-  silent! map <unique> ,r <Plug>(quickrun)
-
-  " config
-  let g:quickrun_config = {
-  \   '_': {
-  \       'output/buffer/split': 'botright 8sp',
-  \       'hook/time/enable': '1',
-  \       'runner': 'vimproc',
-  \       'outputter/buffer/close_on_empty': 1,
-  \       'runner/vimproc/updatetime': 60,
-  \   },
-  \   'lua': {'command': 'luajit'},
-  \}
+  source $HOME/.vim/rc/plugins/vim-quickrun.rc.vim
 '''
 
 [[plugins]]
 # QFixHowm 一人お手軽wikiもどき
 repo = "fuenor/qfixhowm"
 hook_add = '''
-  " キーマップリーダー
-  let g:qfixmemo_mapleader = ',h'
-  " howm_dirはファイルを保存したいディレクトリを設定
-  let g:howm_dir             = '~/howm'
-  let g:howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
-  let g:howm_fileencoding    = 'utf8'
-  let g:howm_fileformat      = 'unix'
-  " QFixHowmのファイルタイプ
-  let g:QFixHowm_FileType    = 'markdown'
-  " タイトル記号
-  let g:QFixHowm_Title       = '#'
-  " キーコードやマッピングされたキー列が完了するのを待つ時間(ミリ秒)
-  set timeout timeoutlen=3000 ttimeoutlen=100
-  " プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化(デフォルト:2)
-  let g:QFixWin_EnableMode = 1
-  " textwidthの再設定
-  augroup HowmSetting
-    autocmd!
-    autocmd Filetype qfix_memo setlocal textwidth=0
-  augroup END
-  " 休日定義ファイル
-  let g:QFixHowm_HolidayFile = '~/howm/Sche-Hd-0000-00-00-000000.utf8'
-  " GMTとの時差
-  let g:QFixHowm_ST = -9
-  " 外部grepの指定
-  let g:mygrepprg = 'jvgrep'
-  " 外部grep(OS)のshellエンコーディング
-  let g:MyGrep_ShellEncoding = 'utf-8'
-  "" マルチエンコーディングgrepを使用する
-  "let g:MyGrep_MultiEncoding = 1
-
-  " MRU表示数
-  let g:QFixMRU_Entries      = 30
-  " MRUの保存ファイル名
-  let g:QFixMRU_Filename     = '~/howm/qfixmru'
-  " MRUに登録しないファイル名(正規表現)
-  let g:QFixMRU_IgnoreFile   = ''
-  " MRUに登録するファイルの正規表現(設定すると指定ファイル以外登録されない)
-  let g:QFixMRU_RegisterFile = ''
-  " MRUに登録しないタイトル(正規表現)
-  let g:QFixMRU_IgnoreTitle  = ':invisible'
-  " MRUでエントリタイトルと見なす正規表現
-  let g:QFixMRU_Title = {
-  \   'java': '^\s*public.*(.*).*{',
-  \   'js':   '^\s*function',
-  \   'php':  '^\s*function',
-  \   'py':   '^def',
-  \   'rb':   '^\s*def',
-  \   'vim':  '^\s*\(silent!\?\)\?\s*function',
-  \   'howm': '^=\([^=]\|$\)',
-  \   'txt':  '^=\([^=]\|$\)',
-  \   'mkd':  '^#',
-  \}
-
-  " MRU内部のエントリ最大保持数
-  let g:QFixMRU_EntryMax     = 300
+  source $HOME/.vim/rc/plugins/qfixhowm.rc.vim
 '''
