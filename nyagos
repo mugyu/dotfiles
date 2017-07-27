@@ -59,19 +59,19 @@ alias {
   peco = "nkf -m0 -w -u | c:\\tools\\bin\\peco\\peco.exe",
 }
 
--- -- chdir
--- nyagos.alias("cd", function(args)
---   path = ""
---   if args[1] then
---     path = args[1]
---   end
--- 
---   if not nyagos.exec("__cd__ " .. path) then
---     io.stderr:write(path .. ": no such directory\n")
---     return
---   end
---   nyagos.exec("__ls__ -F -o")
--- end)
+-- chdir
+nyagos.alias.cd = function(args)
+  path = ""
+  if args[1] then
+    path = args[1]
+  end
+
+  if not nyagos.exec("__cd__ " .. path) then
+    io.stderr:write(path .. ": no such directory\n")
+    return
+  end
+  nyagos.exec("__ls__ -F -o")
+end
 
 -------------------------------------------------------------------
 -- suffix
@@ -91,15 +91,14 @@ suffix(".txt", {"less"})
 -------------------------------------------------------------------
 -- comspec
 -------------------------------------------------------------------
--- for _, name in pairs {
---   "notepad",
---   "hidemaru",
---   "taskmgr",
---   "mspaint",
---   "write",
---   "gvim",
---   "ckw",
--- } do
---   nyagos.alias(name, "%COMSPEC% /c start " .. name .. " $*")
--- end
+for _, name in pairs {
+  "notepad",
+  "taskmgr",
+  "mspaint",
+  "write",
+  "gvim",
+  "ckw",
+} do
+    nyagos.alias[name] = "%COMSPEC% /c start " .. name .. " $*"
+end
 -- vim:set ft=lua: --
