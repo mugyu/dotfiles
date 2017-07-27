@@ -43,11 +43,12 @@ alias {
   rm = "rm -i",
   mv = "mv -i",
   ll = "ls -l",
+  la = "ls -a",
 }
 
 alias {
   vi = "vim",
-  less = "c:\\tools\\vim\\vim74\\macros\\less.bat",
+  less = "c:\\tools\\vim\\vim80\\macros\\less.bat",
 }
 
 alias {
