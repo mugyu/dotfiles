@@ -54,7 +54,7 @@ alias {
   new = "cmd /c start ckw.exe",
   nkf = "nkf -s",
   find = "c:/tools/git/bin/find.exe",
-  time = "c:/tools/devkit/bin/time.exe",
+  time = "c:/tools/msys/usr/bin/time.exe",
   gosh = "c:\\tools\\Gauche\\bin\\gosh.exe",
   peco = "nkf -m0 -w -u | c:\\tools\\bin\\peco\\peco.exe",
 }
