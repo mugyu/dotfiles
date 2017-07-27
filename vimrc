@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 25-Jul-2017.
+" Last Change: 27-Jul-2017.
 "
 
 "---------------------------------------------------------------------------
@@ -50,9 +50,17 @@ set keywordprg=:help
 "{{{
 " GUI実行時に設定しない(gvimrcに設定の任を委譲)
 if ! has("gui_running")
-
   " カラースキーム (Windows用gvim使用時はgvimrcを編集すること)
-  colorscheme torte
+" colorscheme torte
+  if (has('win32') && $ConEmuANSI == 'ON')
+    set term=pcansi
+    set encoding=cp932
+    set termencoding=cp932
+    set t_Co=256
+    let &t_AB="\e[48;5;%dm"
+    let &t_AF="\e[38;5;%dm"
+    colorscheme molokai
+  endif
 
   " ポップアップ補完メニュー色設定（通常の項目、選択されている項目、スクロールバー、スクロールバーのつまみ部分） 
   highlight Pmenu       ctermfg=0 guifg=#000000 ctermbg=6 guibg=#4c745a
