@@ -20,12 +20,13 @@ addpath("%GOROOT%\\bin")
 -----------------------------------------------------------------
 -- path
 -----------------------------------------------------------------
-addpath("%SCRIPTLIB%\\batfile")
-addpath("C:\\tools\\devkit\\bin")
-addpath("C:\\tools\\devkit\\mingw\\bin")
-addpath("C:\\tools\\vim")
-addpath("C:\\tools\\ruby21\\bin")
+addpath("C:\\tools\\git\\mingw64\bin")
 addpath("C:\\tools\\git\\bin")
+addpath("C:\\tools\\msys\\mingw64\\bin")
+addpath("C:\\tools\\msys\\usr\\bin")
+addpath("C:\\tools\\nodejs")
+addpath("C:\\tools\\vim")
+addpath("%SCRIPTLIB%\\batfile")
 
 -----------------------------------------------------------------
 -- alias
