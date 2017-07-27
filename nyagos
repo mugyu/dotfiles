@@ -5,7 +5,6 @@ set{
   PROMPT = "$e[31;40;1m[$P]$_$$ $e[37;1m",
   SCRIPTLIB = "%HOME%\\script",
   TERM = "msys",
-  LESS = "-q",
   EDITOR = "gvim --remote-tab-wait-silent",
   GREP_OPTiONS = "--color=auto",
   SSL_CERT_FILE = "%HOME%\\.config\\openssl\\cacert.pem",
