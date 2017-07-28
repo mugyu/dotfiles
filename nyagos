@@ -65,6 +65,8 @@ nyagos.alias.cd = function(args)
   path = ""
   if args[1] then
     path = args[1]
+  else
+    path = "~"
   end
 
   if not nyagos.exec("__cd__ " .. path) then
