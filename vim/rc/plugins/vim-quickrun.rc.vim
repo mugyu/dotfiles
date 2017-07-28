@@ -9,7 +9,6 @@ let g:quickrun_config = {
 \       'hook/time/enable': '1',
 \       'runner': 'job',
 \       'outputter/buffer/close_on_empty': 1,
-\       'runner/vimproc/updatetime': 60,
 \   },
 \   'lua': {'command': 'luajit'},
 \}
