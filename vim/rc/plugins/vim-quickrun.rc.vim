@@ -7,7 +7,7 @@ let g:quickrun_config = {
 \   '_': {
 \       'output/buffer/split': 'botright 8sp',
 \       'hook/time/enable': '1',
-\       'runner': 'vimproc',
+\       'runner': 'job',
 \       'outputter/buffer/close_on_empty': 1,
 \       'runner/vimproc/updatetime': 60,
 \   },
