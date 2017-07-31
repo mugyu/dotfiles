@@ -106,4 +106,16 @@ for _, name in pairs {
 } do
     nyagos.alias[name] = "%COMSPEC% /c start " .. name .. " $*"
 end
+
+-------------------------------------------------------------------
+-- functions
+-------------------------------------------------------------------
+nyagos.alias.gitbra = function(this)
+  local branch = nyagos.eval("git branch | peco")
+  if branch == "" then
+    print("")
+  else
+    nyagos.exec("git co " .. string.sub(branch, 3))
+  end
+end
 -- vim:set ft=lua: --
