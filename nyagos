@@ -8,11 +8,15 @@ set{
   EDITOR = "gvim --remote-tab-wait-silent",
   GREP_OPTiONS = "--color=auto",
   SSL_CERT_FILE = "%HOME%\\.config\\openssl\\cacert.pem",
+  TOOLS_PATH = "C:\\tools",
+  MSYS_PATH = "%TOOLS_PATH%\\msys",
+  GIT_PATH = "%TOOLS_PATH%\\git",
+  DOTNET_PATH = "C:\\WINDOWS\\Microsoft.NET\\Framework64\\v4.0.30319",
 }
 
 -- golang
 set {
-  GOROOT = "C:/tools/go",
+  GOROOT = "%TOOLS_PATH%/go",
   GOPATH = "%HOME%/go",
 }
 addpath("%GOROOT%\\bin")
@@ -20,22 +24,22 @@ addpath("%GOROOT%\\bin")
 -----------------------------------------------------------------
 -- path
 -----------------------------------------------------------------
-addpath("C:\\tools\\git\\mingw64\bin")
-addpath("C:\\tools\\git\\bin")
-addpath("C:\\tools\\msys\\mingw64\\bin")
-addpath("C:\\tools\\msys\\usr\\bin")
-addpath("C:\\tools\\nodejs")
-addpath("C:\\tools\\vim")
+addpath("%GIT_PATH%\\mingw64\bin")
+addpath("%GIT_PATH%\\bin")
+addpath("%MSYS_PATH%\\mingw64\\bin")
+addpath("%MSYS_PATH%\\usr\\bin")
+addpath("%TOOLS_PATH%\\nodejs")
+addpath("%TOOLS_PATH%\\vim")
 addpath("%SCRIPTLIB%\\batfile")
 
 -----------------------------------------------------------------
 -- alias
 -----------------------------------------------------------------
 alias {
-  csc = "c:\\WINDOWS\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe",
-  vbc = "c:\\WINDOWS\\Microsoft.NET\\Framework64\\v4.0.30319\\vbc.exe",
-  jsc = "c:\\WINDOWS\\Microsoft.NET\\Framework64\\v4.0.30319\\jsc.exe",
-  MSBuild = "c:\\WINDOWS\\Microsoft.NET\\Framework\\v4.0.30319\\MSBuild.exe",
+  csc = "%DOTNET_PATH%\\csc.exe",
+  vbc = "%DOTNET_PATH%\\vbc.exe",
+  jsc = "%DOTNET_PATH%\\jsc.exe",
+  MSBuild = "%DOTNET_PATH%\\MSBuild.exe",
 }
 
 alias {
@@ -54,10 +58,8 @@ alias {
 alias {
   new = "cmd /c start ckw.exe",
   nkf = "nkf -s",
-  find = "c:/tools/git/bin/find.exe",
-  time = "c:/tools/msys/usr/bin/time.exe",
   gosh = "c:\\tools\\Gauche\\bin\\gosh.exe",
-  peco = "nkf -m0 -w -u | c:\\tools\\bin\\peco\\peco.exe",
+  peco = "nkf -m0 -w -u | peco.exe",
 }
 
 -- chdir
@@ -83,7 +85,7 @@ suffix(".pl", {"perl"})
 suffix(".py", {"ipy"})
 suffix(".rb", {"ruby"})
 suffix(".lua", {"lua"})
-suffix(".awk", {"awk","-f"})
+suffix(".awk", {"gawk","-f"})
 suffix(".js", {"cscript","//nologo"})
 suffix(".vbs", {"cscript","//nologo"})
 suffix(".ps1", {"powershell","-file"})
