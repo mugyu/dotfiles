@@ -9,8 +9,8 @@ set{
   GREP_OPTiONS = "--color=auto",
   SSL_CERT_FILE = "%HOME%\\.config\\openssl\\cacert.pem",
   TOOLS_PATH = "C:\\tools",
-  MSYS_PATH = "%TOOLS_PATH%\\msys",
-  GIT_PATH = "%TOOLS_PATH%\\git",
+  MSYS_PATH = "C:\\tools\\msys",
+  GIT_PATH = "C:\\tools\\git",
   DOTNET_PATH = "C:\\WINDOWS\\Microsoft.NET\\Framework64\\v4.0.30319",
 }
 
@@ -24,7 +24,7 @@ addpath("%GOROOT%\\bin")
 -----------------------------------------------------------------
 -- path
 -----------------------------------------------------------------
-addpath("%GIT_PATH%\\mingw64\bin")
+addpath("%GIT_PATH%\\mingw64\\bin")
 addpath("%GIT_PATH%\\bin")
 addpath("%MSYS_PATH%\\mingw64\\bin")
 addpath("%MSYS_PATH%\\usr\\bin")
