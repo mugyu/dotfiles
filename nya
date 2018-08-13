@@ -12,6 +12,7 @@ source c:/tools/bin/_nya
 # ŠÂ‹«•Ï”
 #-----------------------------------------------------------------
 set SCRIPTLIB=%HOME%\script
+set PATH=%PATH%;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin
 set PATH=%PATH%;c:\tools\devkit\bin
 set PATH=%PATH%;C:\tools\devkit\mingw\bin
 set PATH=%PATH%;c:\tools\vim
