@@ -6,6 +6,8 @@ set{
   SCRIPTLIB = "%HOME%\\script",
   TERM = "msys",
   EDITOR = "gvim --remote-tab-wait-silent",
+  PAGER = "less",
+  LESS = "-i -M -R",
   GREP_OPTiONS = "--color=auto",
   SSL_CERT_FILE = "%HOME%\\.config\\openssl\\cacert.pem",
   TOOLS_PATH = "C:\\tools",
