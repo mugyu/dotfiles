@@ -58,7 +58,6 @@ alias vbc   c:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\vbc.exe
 alias jsc   c:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\jsc.exe
 alias MSBuild   c:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe
 alias gosh  c:\tools\Gauche\bin\gosh.exe
-alias less  c:\tools\vim\vim74\macros\less.bat
 alias peco  "nkf -m0 -w -u | c:\tools\bin\peco\peco.exe"
 
 # option +standalone

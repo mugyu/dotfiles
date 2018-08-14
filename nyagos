@@ -56,7 +56,6 @@ alias {
 
 alias {
   vi = "vim",
-  less = "c:\\tools\\vim\\vim80\\macros\\less.bat",
 }
 
 alias {
