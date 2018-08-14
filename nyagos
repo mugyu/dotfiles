@@ -59,7 +59,6 @@ alias {
 }
 
 alias {
-  new = "cmd /c start ckw.exe",
   nkf = "nkf -s",
   gosh = "c:\\tools\\Gauche\\bin\\gosh.exe",
   peco = "nkf -m0 -w -u | peco.exe",
@@ -104,7 +103,6 @@ for _, name in pairs {
   "mspaint",
   "write",
   "gvim",
-  "ckw",
 } do
     nyagos.alias[name] = "%COMSPEC% /c start " .. name .. " $*"
 end
