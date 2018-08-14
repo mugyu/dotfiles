@@ -69,10 +69,11 @@ nyagos.alias.cd = function(args)
   local path = ""
   if args[1] then
     path = args[1]
+  else
+    path = ""
   end
-  path = string.gsub(path, '\\$', "")
 
-  if not nyagos.exec("__cd__ " .. '"' .. path .. '"') then
+  if not nyagos.exec("__cd__ " .. path) then
     io.stderr:write(path .. ": no such directory\n")
     return
   end
