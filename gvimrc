@@ -4,7 +4,7 @@ scriptencoding utf-8
 "
 " Kariya Vim の $VIM/gvimrc を先読みしている前提の設定です。
 "
-" Last Change: 24-Nov-2014.
+" Last Change: 19-Aug-2018.
 
 
 "---------------------------------------------------------------------------
@@ -77,5 +77,7 @@ nmap <m-space> :simalt~<CR>
 " keymap
 "Visualモードのpで上書きされたテキストをレジスタに入れない
 xmap p "_c<ESC><Plug>(yankround-p)
+xmap P "_c<ESC><Plug>(yankround-P)
 xmap gp "_c<ESC><Plug>(yankround-gp)
+xmap gP "_c<ESC><Plug>(yankround-gP)
 "}}}
