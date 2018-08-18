@@ -6,7 +6,7 @@ filetype off
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 27-Jul-2017.
+" Last Change: 19-Aug-2018.
 "
 
 "---------------------------------------------------------------------------
@@ -16,7 +16,9 @@ filetype off
 " インクリメンタルサーチを行う
 set incsearch
 " grep の設定を 'findstr /n' から jvgrep へ変更(win32の defult は findstr)
-set grepprg=jvgrep\ -8
+if executable('jvgrep')
+  set grepprg=jvgrep\ -8
+endif
 "}}}
 
 "---------------------------------------------------------------------------
@@ -42,6 +44,10 @@ set noexpandtab
 set clipboard+=unnamedplus,unnamed
 " コマンド K に使われるヘルプの default を :help にする 
 set keywordprg=:help
+" ファイルの最後の改行を自動で入れない。初めから入っている分にはそのまま
+set nofixeol
+" 親ディレクトリのtagsを探す
+set tags+=./tags;
 "}}}
 
 "---------------------------------------------------------------------------
@@ -158,6 +164,13 @@ nmap <C-l> :nohlsearch<CR> :redraw!<CR>
 
 " Windows操作のトリガーキーを S に設定
 nmap s <C-W>
+
+" タグジャンプ先が一つの時は即ジャンプ, 二つ以上の時は選択
+nmap <C-]> g<C-]>
+nmap <C-W><C-]> <C-W>g<C-]>
+
+" 入力モード中に素早くjjと入力した場合はESCとみなす
+inoremap jj <Esc>
 "}}}
 
 "---------------------------------------------------------------------------
