@@ -1,5 +1,11 @@
 [core]
+	# グローバルな除外設定
 	excludesfile = ~/.gitignore
+	# 日本語ファイル名対応
+	quotepath = false
+	# ページャの文字化け対応
+	pager=LC_ALL=ja_JP.UTF-8 less -Sx4
+
 [alias]
 	co = checkout
 	st = status
@@ -12,3 +18,13 @@
 	lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	hdiff = diff HEAD
 	cdiff = diff --cached
+
+# gitk, git-guiの設定
+[gui]
+	encoding=utf-8
+
+# git diff, git show 時に文字コード変換
+[diff "cp932"]
+	textconv=iconv -f cp932 -t utf-8
+[diff "sjis"]
+	textconv=iconv -f sjis -t utf-8
