@@ -127,7 +127,7 @@ nyagos.alias.gitbra = function(this)
   if branch == "" then
     print("")
   else
-    nyagos.exec("git co " .. string.sub(branch, 3))
+    nyagos.exec("git co " .. string.match(branch, "^%*? ?(.*)"))
   end
 end
 -- vim:set ft=lua: --
