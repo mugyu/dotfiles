@@ -107,6 +107,28 @@ suffix(".wsf", {"cscript","//nologo"})
 suffix(".txt", {"less"})
 
 -------------------------------------------------------------------
+-- prompt
+-------------------------------------------------------------------
+share.prompt = nyagos.prompt
+nyagos.prompt = function(this)
+  local branch_name = get_current_branch()
+  if (branch_name ~= "") then
+    return share.prompt(branch_name .. this)
+  end
+  return share.prompt(this)
+end
+
+get_current_branch = function()
+  local handle = io.popen("git rev-parse --abbrev-ref @", "r")
+  local branch_name = handle:read("*a"):gsub("%s+", "") or ""
+  handle:close()
+  if (branch_name ~= "") then
+    return "$e[96;40;1m[" .. branch_name .. "]$e[37;1m"
+  end
+  return ""
+end
+
+-------------------------------------------------------------------
 -- comspec
 -------------------------------------------------------------------
 for _, name in pairs {
