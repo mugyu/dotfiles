@@ -34,10 +34,13 @@ on_cmd = ["Linediff", "LinediffReset"]
 [[plugins]]
 repo = "Shougo/neomru.vim"
 
+[[plugins]]
+repo = "Shougo/tabpagebuffer.vim"
+
 # unite.vim
 [[plugins]]
 repo = "Shougo/unite.vim"
-depends = ["neomru.vim"]
+depends = ["neomru.vim", "tabpagebuffer.vim"]
 on_cmd = ["Unite", "UniteWithCurrentDir", "UniteWithBufferDir", "UniteWithInput", "UniteWithCursorWord", "UniteClose", "UniteBookmarkAdd"]
 hook_add = '''
   source $HOME/.vim/rc/plugins/unite.keymap.vim
@@ -94,7 +97,7 @@ hook_add = '''
 
 [[plugins]]
 repo = "Shougo/vimfiler.vim"
-depends = ["unite.vim", "vimproc.vim"]
+depends = ["unite.vim", "vimproc.vim", "tabpagebuffer.vim"]
 on_cmd = ["VimFiler", "VimFilerBufferDir"]
 hook_add = '''
   source $HOME/.vim/rc/plugins/vimfiler.keymap.vim
@@ -105,6 +108,7 @@ hook_source = '''
 
 [[plugins]]
 repo = "Shougo/vimshell.vim"
+depends = ["unite.vim", "vimproc.vim", "tabpagebuffer.vim"]
 on_cmd = ["VimShell", "VimShellCreate", "VimShellTab", "VimShellPop", "VimShellCurrentDir", "VimShellBufferDir", "VimShellExecute", "VimShellInteractive", "VimShellTerminal", "VimShellSendString", "VimShellSendBuffer"]
 hook_add = '''
   source $HOME/.vim/rc/plugins/vimshell.keymap.vim
