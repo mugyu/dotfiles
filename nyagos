@@ -145,7 +145,7 @@ end
 -- functions
 -------------------------------------------------------------------
 nyagos.alias.gitbra = function(this)
-  local branch = nyagos.eval("git branch | peco")
+  local branch = nyagos.eval("git branch | fzf")
   if branch == "" then
     print("")
   else
