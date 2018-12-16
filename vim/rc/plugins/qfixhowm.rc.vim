@@ -2,7 +2,7 @@
 let g:qfixmemo_mapleader = ',h'
 " howm_dirはファイルを保存したいディレクトリを設定
 let g:howm_dir             = '~/howm'
-let g:howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
+let g:howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.md'
 let g:howm_fileencoding    = 'utf8'
 let g:howm_fileformat      = 'unix'
 " QFixHowmのファイルタイプ
