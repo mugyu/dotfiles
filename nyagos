@@ -20,8 +20,8 @@ set{
   GREP_OPTiONS = "--color=auto",
   SSL_CERT_FILE = "%HOME%\\.config\\openssl\\cacert.pem",
   TOOLS_PATH = "C:\\tools",
-  MSYS_PATH = "C:\\tools\\msys",
-  GIT_PATH = "C:\\tools\\git",
+  MSYS_PATH = "%TOOLS_PATH%\\msys",
+  GIT_PATH = "%TOOLS_PATH%\\git",
   DOTNET_PATH = "C:\\WINDOWS\\Microsoft.NET\\Framework64\\v4.0.30319",
 }
 
@@ -71,7 +71,7 @@ alias {
 
 alias {
   nkf = "nkf -s",
-  gosh = "c:\\tools\\Gauche\\bin\\gosh.exe",
+  gosh = "%TOOLS_PATH%\\Gauche\\bin\\gosh.exe",
   peco = "nkf -m0 -w -u | peco.exe",
 }
 
