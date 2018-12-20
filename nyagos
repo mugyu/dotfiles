@@ -44,6 +44,7 @@ addpath("%MSYS_PATH%\\usr\\bin")
 addpath("%MSYS_PATH%")
 addpath("%TOOLS_PATH%\\nodejs")
 addpath("%TOOLS_PATH%\\vim")
+addpath("%TOOLS_PATH%\\bin")
 addpath("C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin")
 addpath("%SCRIPTLIB%\\batfile")
 
