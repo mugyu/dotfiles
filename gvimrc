@@ -4,7 +4,7 @@ scriptencoding utf-8
 "
 " Kariya Vim の $VIM/gvimrc を先読みしている前提の設定です。
 "
-" Last Change: 24-Aug-2018.
+" Last Change: 21-Dec-2018.
 
 "---------------------------------------------------------------------------
 " for kaoriya/vim
@@ -23,8 +23,7 @@ endif
 " for Windows
 "{{{
 if has('win32')
-  "set guifont=MS_Gothic:h10.5
-  set guifont=Osaka－等幅:h10.5
+  set guifont=Cica:h10.5,MyricaM_M:h10.5,Osaka－等幅:h10.5,MS_Gothic:h10.5
   "set renderoptions=type:directx,renmode:4
   set renderoptions=type:directx
   " 行間隔の設定
