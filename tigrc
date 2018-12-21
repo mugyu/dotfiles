@@ -1,0 +1,4 @@
+set line-graphics = ascii
+# set horizontal-scroll = 20%
+
+source ~/.tigrc.vim
