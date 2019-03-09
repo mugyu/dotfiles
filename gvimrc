@@ -4,7 +4,7 @@ scriptencoding utf-8
 "
 " Kariya Vim の $VIM/gvimrc を先読みしている前提の設定です。
 "
-" Last Change: 21-Dec-2018.
+" Last Change: 11-Feb-2019.
 
 "---------------------------------------------------------------------------
 " for kaoriya/vim
@@ -28,9 +28,11 @@ if has('win32')
   set renderoptions=type:directx
   " 行間隔の設定
   set linespace=1
-  " 一部のUCS文字の幅を自動計測して決める
   if has('kaoriya')
+    " 一部のUCS文字の幅を自動計測して決める
     set ambiwidth=auto
+    " Kaoriya Screen.vim の 縮小文字設定
+    let g:fever_guifont="Cica:h9,MyricaM_M:h9,Osaka－等幅:h9,MS_Gothic:h9"
   endif
 endif
 "}}}
