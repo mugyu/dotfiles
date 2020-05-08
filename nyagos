@@ -56,6 +56,7 @@ alias {
   vbc = "%DOTNET_PATH%\\vbc.exe",
   jsc = "%DOTNET_PATH%\\jsc.exe",
   MSBuild = "%DOTNET_PATH%\\MSBuild.exe",
+  pip = "python %MSYS_PATH%\\usr\\bin\\pip"
 }
 
 alias {
