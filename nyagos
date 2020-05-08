@@ -45,7 +45,6 @@ addpath("%MSYS_PATH%")
 addpath("%TOOLS_PATH%\\nodejs")
 addpath("%TOOLS_PATH%\\vim")
 addpath("%TOOLS_PATH%\\bin")
-addpath("C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin")
 addpath("%TOOLS_PATH%\\PuTTY")
 addpath("%SCRIPTLIB%\\batfile")
 
@@ -121,7 +120,7 @@ nyagos.prompt = function(this)
 end
 
 get_current_branch = function()
-  local handle = io.popen("git rev-parse --abbrev-ref @", "r")
+  local handle = io.popen("git rev-parse --abbrev-ref @ 2>nul", "r")
   local branch_name = handle:read("*a"):gsub("%s+", "") or ""
   handle:close()
   if (branch_name ~= "") then
