@@ -1,4 +1,9 @@
 [[plugins]]
+# EditorConfig を適用する
+# https://editorconfig.org/
+repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
 # 非同期で外部コマンドを実行したりとか
 repo = 'Shougo/vimproc.vim'
 build = 'make'
