@@ -12,6 +12,7 @@ use "autols"
 -----------------------------------------------------------------
 set{
   PROMPT = "$e[31;40;1m[$P]$_$$ $e[37;1m",
+  LANG = "ja_JP",
   SCRIPTLIB = "%HOME%\\script",
   TERM = "msys",
   EDITOR = "gvim --remote-tab-wait-silent",
@@ -46,6 +47,7 @@ addpath("%TOOLS_PATH%\\nodejs")
 addpath("%TOOLS_PATH%\\vim")
 addpath("%TOOLS_PATH%\\bin")
 addpath("C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin")
+addpath("%TOOLS_PATH%\\PuTTY")
 addpath("%SCRIPTLIB%\\batfile")
 
 -----------------------------------------------------------------

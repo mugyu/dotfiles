@@ -1,12 +1,12 @@
 scriptencoding utf-8
 source $HOME/.vim/rc/dein.vim
 filetype off
-" vim:set ts=8 sts=2 sw=2 tw=0 foldmethod=marker:
+" vim:set ts=8 sts=2 sw=2 tw=0 foldmethod=marker expandtab:
 " (上記の行に関しては:help modelineを参照)
 "
 " Kariya Vim の $VIM/vimrc を先読みしている前提の設定です。
 "
-" Last Change: 29-Aug-2018.
+" Last Change: 30-May-2019.
 "
 
 "---------------------------------------------------------------------------

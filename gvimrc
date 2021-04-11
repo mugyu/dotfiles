@@ -1,10 +1,10 @@
 scriptencoding utf-8
-" vim:set ts=8 sts=2 sw=2 tw=0 foldmethod=marker:
+" vim:set ts=8 sts=2 sw=2 tw=0 foldmethod=marker expandtab:
 " (上記の行に関しては:help modelineを参照)
 "
 " Kariya Vim の $VIM/gvimrc を先読みしている前提の設定です。
 "
-" Last Change: 11-Feb-2019.
+" Last Change: 30-May-2019.
 
 "---------------------------------------------------------------------------
 " for kaoriya/vim
