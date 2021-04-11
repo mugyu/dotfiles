@@ -33,7 +33,8 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.4.0)
     ruby-progressbar (1.10.0)
-    rubygems-update (2.7.8)
+    rubygems-update (2.7.9)
+    sqlite3 (1.3.13)
     sqlite3 (1.3.13-x64-mingw32)
     test-unit (3.2.9)
       power_assert
@@ -41,6 +42,7 @@ GEM
     yard (0.9.16)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
